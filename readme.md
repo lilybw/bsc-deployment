@@ -1,0 +1,1 @@
+## Put the binaries in a folder named bin at root level
