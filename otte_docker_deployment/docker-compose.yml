@@ -11,6 +11,7 @@ services:
       - POSTGRES_DB=PlayerPersistenceAndAssets
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
+      - ./db_creation_scripts/db_creation_player_colony_database.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 10s
@@ -29,6 +30,7 @@ services:
       - POSTGRES_DB=OTTEInternationalizationCatalogues
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
+      - ./db_creation_scripts/db_creation_player_colony_database.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 10s
