@@ -36,3 +36,18 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  otte_main_backend:
+    build:
+      context: .
+      dockerfile: /dockerfiles/main_backend.dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - OTTE_LANGUAGE_DB_DSN="host.docker.internal 8433, OTTE_MAIN_BACKEND 0tt3M41nB4ck3ndP4ssw0rd!, OTTEInternationalizationCatalogues"
+      - OTTE_PLAYER_COLONY_DB_DSN="host.docker.internal 8432, OTTE_MAIN_BACKEND 0tt3M41nB4ck3ndP4ssw0rd!, PlayerPersistenceAndAssets"
+    depends_on:
+      - player_colony_database
+      - language_database
+  
