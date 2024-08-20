@@ -3,12 +3,13 @@
 
 CREATE TABLE IF NOT EXISTS GraphicalAsset (
     id SERIAL PRIMARY KEY,
-    alias VARCHAR(255),
-    type VARCHAR(50), -- Assuming the MIME type strings
+    alias VARCHAR(255) NOT NULL, -- For debugging
+    type VARCHAR(255) NOT NULL, -- Assuming the MIME type strings
     blob BYTEA,
     useCase VARCHAR(255),
-    width INT,
-    height INT
+    width INT NOT NULL,
+    height INT NOT NULL,
+    hasLOD BOOLEAN NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS NPC (
@@ -20,25 +21,17 @@ CREATE TABLE IF NOT EXISTS NPC (
 
 CREATE TABLE IF NOT EXISTS Transform (
     id SERIAL PRIMARY KEY,
-    xScale FLOAT,
-    yScale FLOAT,
-    xOffset FLOAT,
-    yOffset FLOAT,
-    zIndex INT
+    xScale FLOAT DEFAULT 1,
+    yScale FLOAT DEFAULT 1,
+    xOffset FLOAT DEFAULT 0,
+    yOffset FLOAT DEFAULT 0,
+    zIndex INT DEFAULT 100
 );
 
 CREATE TABLE IF NOT EXISTS AssetCollection (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    entries INT[]  -- Array of foreign keys pointing to CollectionEntry IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
-);
-
-CREATE TABLE IF NOT EXISTS ColonyCode (
-    id SERIAL PRIMARY KEY,
-    lobbyId INT, -- foreign key?
-    expiresAt TIMESTAMP,
-    value VARCHAR(255),
-    colony INT  -- Single foreign key pointing to Colony ID (Single id attribute to avoid creation conflicts, triggers will handle)
+    collectionEntries INT[] DEFAULT '{}'  -- Array of foreign keys pointing to CollectionEntry IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
 );
 
 CREATE TABLE IF NOT EXISTS Achievement (
@@ -60,6 +53,7 @@ CREATE TABLE IF NOT EXISTS Player (
 CREATE TABLE IF NOT EXISTS Session (
     id SERIAL PRIMARY KEY,
     player INT,
+    createdAt TIMESTAMP DEFAULT NOW(), -- Perform check in backend against maxValidDuration.
     token VARCHAR(255) UNIQUE,  -- Unique session token
     validDuration INTERVAL DEFAULT '1 hour',  -- Default session duration
     lastCheckIn TIMESTAMP DEFAULT NOW(),  -- Timestamp of last activity
@@ -68,7 +62,6 @@ CREATE TABLE IF NOT EXISTS Session (
 
 CREATE TABLE IF NOT EXISTS Colony (
     id SERIAL PRIMARY KEY,
-    colonyCode INT,
     name VARCHAR(255),
     accLevel INT,
     latestVisit TIMESTAMP,
@@ -76,7 +69,16 @@ CREATE TABLE IF NOT EXISTS Colony (
     assets INT[],  -- Array of foreign keys pointing to ColonyAsset IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
     locations INT[],  -- Array of foreign keys pointing to ColonyLocation IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
     FOREIGN KEY (owner) REFERENCES Player(id),
-    FOREIGN KEY (colonyCode) REFERENCES ColonyCode(id)
+    colonyCode INT  -- Single foreign key pointing to ColonyCode ID (Single id attribute to avoid creation conflicts, triggers will handle)
+);
+
+CREATE TABLE IF NOT EXISTS ColonyCode (
+    id SERIAL PRIMARY KEY,
+    lobbyId INT, -- foreign key? To multiplayer backend.
+    colony INT,
+    expiresAt TIMESTAMP,
+    value VARCHAR(255),
+    FOREIGN KEY (colony) REFERENCES Colony(id)
 );
 
 CREATE TABLE IF NOT EXISTS MiniGame (
@@ -484,24 +486,17 @@ EXECUTE FUNCTION handle_colonycode_deletion();
 ---------------------------------- Update Colony ----------------------------------
 
 ---------------------------------- Session Management ----------------------------------
--- Function to update the lastCheckIn timestamp for a specific session
-CREATE OR REPLACE FUNCTION update_last_checkin_for_player()
-RETURNS TRIGGER AS $$
+-- Function to update the lastCheckIn timestamp and reset the validDuration for a specific session
+CREATE OR REPLACE FUNCTION update_last_checkin_for_player(session_token VARCHAR)
+RETURNS VOID AS $$
 BEGIN
-    -- Update the lastCheckIn timestamp to the current time only for the specific session
-    IF NEW.token = OLD.token THEN
-        NEW.lastCheckIn := NOW();
-    END IF;
-    RETURN NEW;
+    -- Update the lastCheckIn timestamp to the current time
+    -- and reset the validDuration to 1 hour for the session with the provided token
+    UPDATE Session
+    SET lastCheckIn = NOW()
+    WHERE token = session_token;
 END;
 $$ LANGUAGE plpgsql;
-
--- Trigger that ensures the lastCheckIn is only updated for the specific player's session
-CREATE TRIGGER before_player_activity
-BEFORE UPDATE ON Session
-FOR EACH ROW
-WHEN (OLD.token IS NOT DISTINCT FROM NEW.token)
-EXECUTE FUNCTION update_last_checkin_for_player();
 
 -- Function to check and expire sessions that have been inactive beyond their valid duration
 CREATE OR REPLACE FUNCTION check_and_expire_sessions()
@@ -511,6 +506,5 @@ BEGIN
     WHERE lastCheckIn + validDuration < NOW();
 END;
 $$ LANGUAGE plpgsql;
-
--- Optionally, this function can be called periodically via cron jobs or other scheduling mechanisms.
 ---------------------------------- Session Management ----------------------------------
+
