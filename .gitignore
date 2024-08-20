@@ -1,2 +1,9 @@
-/bin/
+bin/*
+# Preserving structure.
+!bin/keepme 
+
 /docker/data
+
+secrets/*
+# Preserving structure.
+!secrets/keepme
