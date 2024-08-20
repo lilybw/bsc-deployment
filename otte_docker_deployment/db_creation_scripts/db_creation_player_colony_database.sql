@@ -30,31 +30,31 @@ CREATE TABLE IF NOT EXISTS Transform (
 
 CREATE TABLE IF NOT EXISTS AssetCollection (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
+    name VARCHAR(255) DEFAULT "DATA.UNNAMED.COLLECTION",
     collectionEntries INT[] DEFAULT '{}'  -- Array of foreign keys pointing to CollectionEntry IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
 );
 
 CREATE TABLE IF NOT EXISTS Achievement (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255),
+    title VARCHAR(255) NOT NULL,
     description TEXT,
-    icon INT,
+    icon INT NOT NULL,
     FOREIGN KEY (icon) REFERENCES GraphicalAsset(id)
 );
 
 CREATE TABLE IF NOT EXISTS Player (
     id SERIAL PRIMARY KEY,
-    IGN VARCHAR(255) UNIQUE,
-    sprite INT,  
-    achievements INT[], -- Should achievements not just reference player to make a proper one to many relationship?
+    IGN VARCHAR(255) UNIQUE NOT NULL,
+    sprite INT NOT NULL,  
+    achievements INT[] DEFAULT '{}', -- Should achievements not just reference player to make a proper one to many relationship?
     FOREIGN KEY (sprite) REFERENCES GraphicalAsset(id)
 );
 
 CREATE TABLE IF NOT EXISTS Session (
     id SERIAL PRIMARY KEY,
-    player INT,
+    player INT NOT NULL,
     createdAt TIMESTAMP DEFAULT NOW(), -- Perform check in backend against maxValidDuration.
-    token VARCHAR(255) UNIQUE,  -- Unique session token
+    token VARCHAR(255) UNIQUE NOT NULL,  -- Unique session token
     validDuration INTERVAL DEFAULT '1 hour',  -- Default session duration
     lastCheckIn TIMESTAMP DEFAULT NOW(),  -- Timestamp of last activity
     FOREIGN KEY (player) REFERENCES Player(id)
@@ -62,61 +62,61 @@ CREATE TABLE IF NOT EXISTS Session (
 
 CREATE TABLE IF NOT EXISTS Colony (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    accLevel INT,
+    name VARCHAR(255) DEFAULT "DATA.UNNAMED.COLONY",
+    accLevel INT DEFAULT 0,
     latestVisit TIMESTAMP,
-    owner INT,
-    assets INT[],  -- Array of foreign keys pointing to ColonyAsset IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
-    locations INT[],  -- Array of foreign keys pointing to ColonyLocation IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
+    owner INT NOT NULL,
+    assets INT[] DEFAULT '{}',  -- Array of foreign keys pointing to ColonyAsset IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
+    locations INT[] DEFAULT '{}',  -- Array of foreign keys pointing to ColonyLocation IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
     FOREIGN KEY (owner) REFERENCES Player(id),
     colonyCode INT  -- Single foreign key pointing to ColonyCode ID (Single id attribute to avoid creation conflicts, triggers will handle)
 );
 
 CREATE TABLE IF NOT EXISTS ColonyCode (
     id SERIAL PRIMARY KEY,
-    lobbyId INT, -- foreign key? To multiplayer backend.
-    colony INT,
-    expiresAt TIMESTAMP,
-    value VARCHAR(255),
+    lobbyId INT NOT NULL,  -- foreign key? To multiplayer backend.
+    serverAddress VARCHAR(255) NOT NULL,
+    colony INT NOT NULL,  -- Server per lobby?
+    value VARCHAR(6) UNIQUE NOT NULL,
     FOREIGN KEY (colony) REFERENCES Colony(id)
 );
 
 CREATE TABLE IF NOT EXISTS MiniGame (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    icon INT,
-    description TEXT,
-    settings JSONB,  -- Assuming settings are stored in JSON format
+    name VARCHAR(255) DEFAULT "DATA.UNNAMED.MINIGAME",
+    icon INT NOT NULL,
+    description TEXT DEFAULT "UI.DESCRIPTION_MISSING",
+    settings JSON NOT NULL,  -- Assuming settings are stored in JSON format
     FOREIGN KEY (icon) REFERENCES GraphicalAsset(id)
 );
 
 CREATE TABLE IF NOT EXISTS MiniGameDifficulty (
     id SERIAL PRIMARY KEY,
-    minigame INT,
-    icon INT,
-    name VARCHAR(255),
-    description TEXT,
-    overwritingSettings JSONB,  -- Overwrites default settings with these specific to the difficulty level
+    minigame INT NOT NULL,
+    icon INT NOT NULL,
+    name VARCHAR(2) DEFAULT "?",  -- Roman Numerals as string.
+    description TEXT DEFAULT "UI.DESCRIPTION_MISSING",
+    overwritingSettings JSON NOT NULL,  -- Overwrites default settings with these specific to the difficulty level
     FOREIGN KEY (minigame) REFERENCES MiniGame(id),
     FOREIGN KEY (icon) REFERENCES GraphicalAsset(id)
 );
 
-CREATE TABLE IF NOT EXISTS Location (
+CREATE TABLE IF NOT EXISTS Location ( -- WE WAS HERE
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    description TEXT,
+    name VARCHAR(255) "DATA.UNNAMED.LOCATION",
+    description TEXT "UI.DESCRIPTION_MISSING",
     minigame INT,
-    assetCollection INT,
+    assetCollection INT NOT NULL,
     FOREIGN KEY (minigame) REFERENCES MiniGame(id),
     FOREIGN KEY (assetCollection) REFERENCES AssetCollection(id)
 );
 
 CREATE TABLE IF NOT EXISTS ColonyLocation (
     id SERIAL PRIMARY KEY,
-    colony INT,
-    location INT,
-    transform INT,
-    level INT,
+    colony INT NOT NULL,
+    location INT NOT NULL,
+    transform INT NOT NULL,
+    level INT DEFAULT 1,
     FOREIGN KEY (colony) REFERENCES Colony(id),
     FOREIGN KEY (location) REFERENCES Location(id),
     FOREIGN KEY (transform) REFERENCES Transform(id)
@@ -124,9 +124,9 @@ CREATE TABLE IF NOT EXISTS ColonyLocation (
 
 CREATE TABLE IF NOT EXISTS ColonyAsset (
     id SERIAL PRIMARY KEY,
-    assetCollection INT,
-    transform INT,
-    colony INT,
+    assetCollection INT NOT NULL,
+    transform INT NOT NULL,
+    colony INT NOT NULL,
     FOREIGN KEY (assetCollection) REFERENCES AssetCollection(id),
     FOREIGN KEY (transform) REFERENCES Transform(id),
     FOREIGN KEY (colony) REFERENCES Colony(id)
@@ -134,9 +134,9 @@ CREATE TABLE IF NOT EXISTS ColonyAsset (
 
 CREATE TABLE IF NOT EXISTS CollectionEntry (
     id SERIAL PRIMARY KEY,
-    transform INT,
+    transform INT NOT NULL,
     assetCollection INT,
-    graphicalAsset INT,
+    graphicalAsset INT NOT NULL,
     FOREIGN KEY (transform) REFERENCES Transform(id),
     FOREIGN KEY (assetCollection) REFERENCES AssetCollection(id),
     FOREIGN KEY (graphicalAsset) REFERENCES GraphicalAsset(id)
@@ -144,9 +144,9 @@ CREATE TABLE IF NOT EXISTS CollectionEntry (
 
 CREATE TABLE IF NOT EXISTS LOD (
     id SERIAL PRIMARY KEY,
-    detailLevel INT,
-    blob BYTEA,
-    graphicalAsset INT,
+    detailLevel INT DEFAULT 1,
+    blob BYTEA NOT NULL,
+    graphicalAsset INT NOT NULL,
     FOREIGN KEY (graphicalAsset) REFERENCES GraphicalAsset(id)
 );
 

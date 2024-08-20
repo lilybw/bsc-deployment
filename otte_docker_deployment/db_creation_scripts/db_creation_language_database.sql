@@ -78,3 +78,10 @@ AFTER INSERT ON Catalogue
 FOR EACH ROW
 WHEN (NEW.NO IS NOT NULL)
 EXECUTE FUNCTION add_words_to_no_wordlist();
+
+INSERT INTO Catalogue(key, EN, DA) VALUES 
+("DATA.UNNAMED.COLLECTION", "Unnamed Collection", "Navneløs Gruppering"), 
+("DATA.UNNAMED.COLONY", "Unnamed Colony", "Navneløs Koloni"),
+("DATA.UNNAMED.MINIGAME", "Unnamed Minigame", "Navneløst Miniaturespil"),
+("DATA.UNNAMED.LOCATION", "Unnamed Location", "Navneløs Lokation"),
+("UI.DESCRIPTION_MISSING", "Missing Description", "Manglende Beskrivelse");
