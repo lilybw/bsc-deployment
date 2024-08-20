@@ -299,7 +299,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER after_colony_update_addition
+CREATE TRIGGER after_colony_update_addition_locations
 AFTER UPDATE OF locations ON Colony
 FOR EACH ROW
 WHEN (NEW.locations IS DISTINCT FROM OLD.locations)
@@ -318,7 +318,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER after_colony_update_removal
+CREATE TRIGGER after_colony_update_removal_locations
 AFTER UPDATE OF locations ON Colony
 FOR EACH ROW
 WHEN (NEW.locations IS DISTINCT FROM OLD.locations)
@@ -385,7 +385,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER after_colony_update_addition
+CREATE TRIGGER after_colony_update_addition_assets
 AFTER UPDATE OF assets ON Colony
 FOR EACH ROW
 WHEN (NEW.assets IS DISTINCT FROM OLD.assets)
@@ -404,7 +404,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER after_colony_update_removal
+CREATE TRIGGER after_colony_update_removal_assets
 AFTER UPDATE OF assets ON Colony
 FOR EACH ROW
 WHEN (NEW.assets IS DISTINCT FROM OLD.assets)
@@ -514,4 +514,3 @@ $$ LANGUAGE plpgsql;
 
 -- Optionally, this function can be called periodically via cron jobs or other scheduling mechanisms.
 ---------------------------------- Session Management ----------------------------------
-
