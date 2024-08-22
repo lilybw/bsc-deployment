@@ -5,9 +5,9 @@ services:
     restart: always
     ports:
       - "8432:5432"
+    env_file:
+      - ../secrets/player_colony_db_secrets.env
     environment:
-      - POSTGRES_PASSWORD=0tt3M41nB4ck3ndP4ssw0rd!
-      - POSTGRES_USER=OTTE_MAIN_BACKEND
       - POSTGRES_DB=PlayerPersistenceAndAssets
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
@@ -24,9 +24,9 @@ services:
     restart: always
     ports:
       - "8433:5432"
+    env_vile: 
+      - ../secrets/language_db_secrets.env
     environment:
-      - POSTGRES_PASSWORD=0tt3M41nB4ck3ndP4ssw0rd!
-      - POSTGRES_USER=OTTE_MAIN_BACKEND
       - POSTGRES_DB=OTTEInternationalizationCatalogues
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
