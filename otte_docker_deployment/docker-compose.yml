@@ -32,6 +32,8 @@ services:
     volumes:
       - ./db_creation_scripts/db_tables_language.sql:/docker-entrypoint-initdb.d/00_init.sql
       - ../secrets/language_db_additional_users.sql:/docker-entrypoint-initdb.d/01_language_db_additional_users.sql
+      - ./db_creation_scripts/db_functions_language.sql:/docker-entrypoint-initdb.d/02_db_functions_language.sql
+      - ./db_creation_scripts/db_data_language.sql:/docker-entrypoint-initdb.d/03_db_data_language.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 10s
