@@ -11,7 +11,8 @@ services:
       - POSTGRES_DB=PlayerPersistenceAndAssets
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
-      - ./db_creation_scripts/db_creation_player_colony_database.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db_creation_scripts/db_creation_player_colony_database.sql:/docker-entrypoint-initdb.d/00_init.sql
+      - ../secrets/player_colony_db_additional_users.sql:/docker-entrypoint-initdb.d/01_player_colony_db_additional_users.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 10s
@@ -24,13 +25,14 @@ services:
     restart: always
     ports:
       - "8433:5432"
-    env_vile: 
+    env_file: 
       - ../secrets/language_db_secrets.env
     environment:
       - POSTGRES_DB=OTTEInternationalizationCatalogues
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
-      - ./db_creation_scripts/db_creation_player_colony_database.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db_creation_scripts/db_creation_player_colony_database.sql:/docker-entrypoint-initdb.d/00_init.sql
+      - ../secrets/language_db_additional_users.sql:/docker-entrypoint-initdb.d/01_language_db_additional_users.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 10s

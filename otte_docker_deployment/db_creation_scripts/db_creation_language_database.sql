@@ -79,6 +79,8 @@ FOR EACH ROW
 WHEN (NEW.NO IS NOT NULL)
 EXECUTE FUNCTION add_words_to_no_wordlist();
 
+ -- INSERT DEFAULT VALUES
+
 INSERT INTO Catalogue(key, EN, DA) VALUES 
 ("DATA.UNNAMED.COLLECTION", "Unnamed Collection", "Navneløs Gruppering"), 
 ("DATA.UNNAMED.COLONY", "Unnamed Colony", "Navneløs Koloni"),

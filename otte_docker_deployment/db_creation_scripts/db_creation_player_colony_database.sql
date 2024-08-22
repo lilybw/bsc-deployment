@@ -1,5 +1,5 @@
--- Missing tables: "PlayerPreferences" and "AvailablePreference" due to lack of references.
--- TODO: Does any attributes need to be "NOT NULL", look at database diagram and discuss.
+-- Missing tables: 'PlayerPreferences' and 'AvailablePreference' due to lack of references.
+-- TODO: Does any attributes need to be 'NOT NULL', look at database diagram and discuss.
 
 CREATE TABLE IF NOT EXISTS GraphicalAsset (
     id SERIAL PRIMARY KEY,
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS Transform (
 
 CREATE TABLE IF NOT EXISTS AssetCollection (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) DEFAULT "DATA.UNNAMED.COLLECTION",
+    name VARCHAR(255) DEFAULT 'DATA.UNNAMED.COLLECTION',
     collectionEntries INT[] DEFAULT '{}'  -- Array of foreign keys pointing to CollectionEntry IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
 );
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS Session (
 
 CREATE TABLE IF NOT EXISTS Colony (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) DEFAULT "DATA.UNNAMED.COLONY",
+    name VARCHAR(255) DEFAULT 'DATA.UNNAMED.COLONY',
     accLevel INT DEFAULT 0,
     latestVisit TIMESTAMP,
     owner INT NOT NULL,
@@ -83,9 +83,9 @@ CREATE TABLE IF NOT EXISTS ColonyCode (
 
 CREATE TABLE IF NOT EXISTS MiniGame (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) DEFAULT "DATA.UNNAMED.MINIGAME",
+    name VARCHAR(255) DEFAULT 'DATA.UNNAMED.MINIGAME',
     icon INT NOT NULL,
-    description TEXT DEFAULT "UI.DESCRIPTION_MISSING",
+    description TEXT DEFAULT 'UI.DESCRIPTION_MISSING',
     settings JSON NOT NULL,  -- Assuming settings are stored in JSON format
     FOREIGN KEY (icon) REFERENCES GraphicalAsset(id)
 );
@@ -94,17 +94,17 @@ CREATE TABLE IF NOT EXISTS MiniGameDifficulty (
     id SERIAL PRIMARY KEY,
     minigame INT NOT NULL,
     icon INT NOT NULL,
-    name VARCHAR(2) DEFAULT "?",  -- Roman Numerals as string.
-    description TEXT DEFAULT "UI.DESCRIPTION_MISSING",
+    name VARCHAR(2) DEFAULT '?',  -- Roman Numerals as string.
+    description TEXT DEFAULT 'UI.DESCRIPTION_MISSING',
     overwritingSettings JSON NOT NULL,  -- Overwrites default settings with these specific to the difficulty level
     FOREIGN KEY (minigame) REFERENCES MiniGame(id),
     FOREIGN KEY (icon) REFERENCES GraphicalAsset(id)
 );
 
-CREATE TABLE IF NOT EXISTS Location ( -- WE WAS HERE
+CREATE TABLE IF NOT EXISTS Location (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) "DATA.UNNAMED.LOCATION",
-    description TEXT "UI.DESCRIPTION_MISSING",
+    name VARCHAR(255) DEFAULT 'DATA.UNNAMED.LOCATION',
+    description TEXT DEFAULT 'UI.DESCRIPTION_MISSING',
     minigame INT,
     appearences INT[] DEFAULT '{}', -- Ids of AssetCollections.
     FOREIGN KEY (minigame) REFERENCES MiniGame(id),
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS ColonyAsset (
 CREATE TABLE IF NOT EXISTS CollectionEntry (
     id SERIAL PRIMARY KEY,
     transform INT NOT NULL,
-    assetCollection INT,
+    assetCollection INT NOT NULL, -- Foreign key to AssetCollection this CollectionEntry is a part of
     graphicalAsset INT NOT NULL,
     FOREIGN KEY (transform) REFERENCES Transform(id),
     FOREIGN KEY (assetCollection) REFERENCES AssetCollection(id),

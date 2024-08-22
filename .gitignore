@@ -3,6 +3,7 @@ bin/*
 !bin/keepme 
 
 /docker/data
+/otte_docker_deployment/data
 
 secrets/*
 # Preserving structure.
