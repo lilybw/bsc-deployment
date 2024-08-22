@@ -106,9 +106,8 @@ CREATE TABLE IF NOT EXISTS Location ( -- WE WAS HERE
     name VARCHAR(255) "DATA.UNNAMED.LOCATION",
     description TEXT "UI.DESCRIPTION_MISSING",
     minigame INT,
-    assetCollection INT NOT NULL,
+    appearences INT[] DEFAULT '{}', -- Ids of AssetCollections.
     FOREIGN KEY (minigame) REFERENCES MiniGame(id),
-    FOREIGN KEY (assetCollection) REFERENCES AssetCollection(id)
 );
 
 CREATE TABLE IF NOT EXISTS ColonyLocation (
@@ -507,4 +506,23 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 ---------------------------------- Session Management ----------------------------------
+
+-- Functions:
+
+---------------------------------- getLocatoionApperances ----------------------------------
+CREATE OR REPLACE FUNCTION getLocatoionApperances(location_id INT)
+RETURNS TABLE(asset_collection_id INT, asset_collection_name VARCHAR(255)) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT ac.id, ac.name
+    FROM AssetCollection ac
+    WHERE ac.id = ANY(
+        SELECT unnest(l.appearances)
+        FROM Location l
+        WHERE l.id = location_id
+    );
+END;
+$$ LANGUAGE plpgsql;
+---------------------------------- getLocatoionApperances ----------------------------------
+
 
