@@ -8,7 +8,7 @@ services:
     env_file:
       - ../secrets/player_colony_db_secrets.env
     environment:
-      - POSTGRES_DB=player_persistence_and_assets
+      - POSTGRES_DB=PlayerPersistenceAndAssets
     volumes:
       - ./db_creation_scripts/db_tables_player_colony.sql:/docker-entrypoint-initdb.d/00_init.sql
       - ./db_creation_scripts/db_functions_player_colony.sql:/docker-entrypoint-initdb.d/01_functions.sql
