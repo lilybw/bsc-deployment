@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS "Player" (
     id SERIAL PRIMARY KEY,
     IGN VARCHAR(255) UNIQUE NOT NULL,
     sprite INT NOT NULL,  
-    achievements INT[] DEFAULT '{}', -- Should achievements not just reference player to make a proper one to many relationship?
+    achievements INT[] DEFAULT '{}' -- Should achievements not just reference player to make a proper one to many relationship?
 );
 
 CREATE TABLE IF NOT EXISTS "Session" (
@@ -20,5 +20,5 @@ CREATE TABLE IF NOT EXISTS "Achievement" (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT,
-    icon INT NOT NULL,
+    icon INT NOT NULL
 );
