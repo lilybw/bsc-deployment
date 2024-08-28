@@ -34,32 +34,6 @@ CREATE TABLE IF NOT EXISTS "AssetCollection" (
     collectionEntries INT[] DEFAULT '{}'  -- Array of foreign keys pointing to CollectionEntry IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
 );
 
-CREATE TABLE IF NOT EXISTS "Achievement" (
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT,
-    icon INT NOT NULL,
-    FOREIGN KEY (icon) REFERENCES "GraphicalAsset"(id)
-);
-
-CREATE TABLE IF NOT EXISTS "Player" (
-    id SERIAL PRIMARY KEY,
-    IGN VARCHAR(255) UNIQUE NOT NULL,
-    sprite INT NOT NULL,  
-    achievements INT[] DEFAULT '{}', -- Should achievements not just reference player to make a proper one to many relationship?
-    FOREIGN KEY (sprite) REFERENCES "GraphicalAsset"(id)
-);
-
-CREATE TABLE IF NOT EXISTS "Session" (
-    id SERIAL PRIMARY KEY,
-    player INT NOT NULL,
-    createdAt TIMESTAMP DEFAULT NOW(), -- Perform check in backend against maxValidDuration.
-    token VARCHAR(255) UNIQUE NOT NULL,  -- Unique session token
-    validDuration INTERVAL DEFAULT '1 hour',  -- Default session duration
-    lastCheckIn TIMESTAMP DEFAULT NOW(),  -- Timestamp of last activity
-    FOREIGN KEY (player) REFERENCES "Player"(id)
-);
-
 CREATE TABLE IF NOT EXISTS "Colony" (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) DEFAULT 'DATA.UNNAMED.COLONY',
@@ -68,7 +42,6 @@ CREATE TABLE IF NOT EXISTS "Colony" (
     owner INT NOT NULL,
     assets INT[] DEFAULT '{}',  -- Array of foreign keys pointing to ColonyAsset IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
     locations INT[] DEFAULT '{}',  -- Array of foreign keys pointing to ColonyLocation IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
-    FOREIGN KEY (owner) REFERENCES "Player"(id),
     colonyCode INT  -- Single foreign key pointing to ColonyCode ID (Single id attribute to avoid creation conflicts, triggers will handle)
 );
 
