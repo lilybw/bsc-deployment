@@ -1,20 +1,29 @@
-# Current distroless method as seen in https://www.youtube.com/watch?v=56TUfwejKfo or https://github.com/antonputra/tutorials/blob/main/lessons/202/cs-app/Dockerfile
-FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0-jammy AS build
-ARG TARGETARCH
-WORKDIR /source
+# Dedicated GoLang image
+FROM golang:1.22-alpine
 
-# copy csproj and restore as distinct layers
-COPY *.csproj .
-RUN dotnet restore -a $TARGETARCH
+# Establishing internal workdir
+WORKDIR /otteBackendService
 
-# copy everything else and build app
+# Copy go.mod and go.sum files to internal workdir
+COPY go.mod go.sum ./
+
+# Updates go.mod and go.sum files based on project usage
+RUN go mod tidy
+# Verifies dependencies
+RUN go mod verify
+# Downloads dependencies
+RUN go mod download
+
+# Copy the entire project to internal workdir
 COPY . .
-RUN dotnet publish -a $TARGETARCH --no-restore -o /app
+# What the executable will be known as when containerized
+ARG _containerAlias="otteBackendService"
 
+# Compile - builds executable
+RUN ["go", "build", "-o", "$_containerAlias", "./src"]
 
-# final stage/image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled
-EXPOSE 8080
-WORKDIR /app
-COPY --from=build /app .
-ENTRYPOINT ["./cs-app"]
+# Expose port 8889
+EXPOSE 8889
+
+# Run the executable
+CMD [ "./$_containerAlias" ]
