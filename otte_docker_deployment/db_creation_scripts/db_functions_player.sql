@@ -6,7 +6,7 @@ BEGIN
     -- Update the lastCheckIn timestamp to the current time
     -- and reset the validDuration to 1 hour for the session with the provided token
     UPDATE Session
-    SET lastCheckIn = NOW()
+    SET "lastCheckIn" = NOW()
     WHERE token = session_token;
 END;
 $$ LANGUAGE plpgsql;
@@ -16,7 +16,7 @@ CREATE OR REPLACE FUNCTION check_and_expire_sessions()
 RETURNS VOID AS $$
 BEGIN
     DELETE FROM Session
-    WHERE lastCheckIn + validDuration < NOW();
+    WHERE "lastCheckIn" + validDuration < NOW();
 END;
 $$ LANGUAGE plpgsql;
 ---------------------------------- Session Management ----------------------------------

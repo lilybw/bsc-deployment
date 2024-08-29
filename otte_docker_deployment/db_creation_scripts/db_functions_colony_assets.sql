@@ -6,18 +6,18 @@
 CREATE OR REPLACE FUNCTION update_assetcollection_entries()
 RETURNS TRIGGER AS $$
 BEGIN
-    IF NEW.assetCollection IS NOT NULL THEN
+    IF NEW."assetCollection" IS NOT NULL THEN
         -- Case 1: If the assetCollection is not null, append the new id to the entries array
         UPDATE "AssetCollection"
-        SET collectionEntries = array_append(collectionEntries, NEW.id)
-        WHERE id = NEW.assetCollection;
+        SET "collectionEntries" = array_append("collectionEntries", NEW.id)
+        WHERE id = NEW."assetCollection";
     END IF;
     
-    IF OLD.assetCollection IS NOT NULL AND NEW.assetCollection IS DISTINCT FROM OLD.assetCollection THEN
+    IF OLD."assetCollection" IS NOT NULL AND NEW."assetCollection" IS DISTINCT FROM OLD."assetCollection" THEN
         -- Case 2: If the old assetCollection is not null and differs from the new one, remove the id from the old collection
         UPDATE "AssetCollection"
-        SET collectionEntries = array_remove(collectionEntries, OLD.id)
-        WHERE id = OLD.assetCollection;
+        SET "collectionEntries" = array_remove("collectionEntries", OLD.id)
+        WHERE id = OLD."assetCollection";
     END IF;
     
     RETURN NEW;
@@ -34,11 +34,11 @@ EXECUTE FUNCTION update_assetcollection_entries();
 CREATE OR REPLACE FUNCTION delete_collectionentry_trigger()
 RETURNS TRIGGER AS $$
 BEGIN
-    IF OLD.assetCollection IS NOT NULL THEN
+    IF OLD."assetCollection" IS NOT NULL THEN
         -- Remove the entry from the array when the entry is deleted
         UPDATE "AssetCollection"
-        SET collectionEntries = array_remove(collectionEntries, OLD.id)
-        WHERE id = OLD.assetCollection;
+        SET "collectionEntries" = array_remove("collectionEntries", OLD.id)
+        WHERE id = OLD."assetCollection";
     END IF;
     
     RETURN OLD;
@@ -57,17 +57,17 @@ RETURNS TRIGGER AS $$
 BEGIN
     -- Update the CollectionEntry to point to the AssetCollection
     UPDATE "CollectionEntry"
-    SET assetCollection = NEW.id
-    WHERE id = ANY(NEW.collectionEntries);
+    SET "assetCollection" = NEW.id
+    WHERE id = ANY(NEW."collectionEntries");
     
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER after_assetcollection_update_addition
-AFTER UPDATE OF collectionEntries ON "AssetCollection"
+AFTER UPDATE OF "collectionEntries" ON "AssetCollection"
 FOR EACH ROW
-WHEN (NEW.collectionEntries IS DISTINCT FROM OLD.collectionEntries)
+WHEN (NEW."collectionEntries" IS DISTINCT FROM OLD."collectionEntries")
 EXECUTE FUNCTION sync_collectionentry_addition();
 
 CREATE OR REPLACE FUNCTION sync_collectionentry_removal()
@@ -75,17 +75,17 @@ RETURNS TRIGGER AS $$
 BEGIN
     -- Set the CollectionEntry assetCollection field to NULL if the ID is removed
     DELETE FROM "CollectionEntry" 
-    WHERE id = ANY(OLD.collectionEntries)
-      AND id != ALL(NEW.collectionEntries);
+    WHERE id = ANY(OLD."collectionEntries")
+      AND id != ALL(NEW."collectionEntries");
     
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER after_assetcollection_update_removal
-AFTER UPDATE OF collectionEntries ON "AssetCollection"
+AFTER UPDATE OF "collectionEntries" ON "AssetCollection"
 FOR EACH ROW
-WHEN (NEW.collectionEntries IS DISTINCT FROM OLD.collectionEntries)
+WHEN (NEW."collectionEntries" IS DISTINCT FROM OLD."collectionEntries")
 EXECUTE FUNCTION sync_collectionentry_removal();
 ---------------------------------- Update CollectionEntry Entries ----------------------------------
 
@@ -268,7 +268,7 @@ BEGIN
     -- Sync ColonyCode's colony when Colony is updated
     UPDATE "ColonyCode"
     SET colony = NEW.id
-    WHERE id = NEW.colonyCode;
+    WHERE id = NEW."colonyCode";
 
     RETURN NEW;
 END;
@@ -303,7 +303,7 @@ RETURNS TRIGGER AS $$
 BEGIN
     -- Sync Colony's colonyCode when ColonyCode is updated
     UPDATE "Colony"
-    SET colonyCode = NEW.id
+    SET "colonyCode" = NEW.id
     WHERE id = NEW.colony;
 
     RETURN NEW;
@@ -320,8 +320,8 @@ RETURNS TRIGGER AS $$
 BEGIN
     -- Set Colony's colonyCode to NULL when corresponding ColonyCode is deleted
     UPDATE "Colony"
-    SET colonyCode = NULL
-    WHERE colonyCode = OLD.id;
+    SET "colonyCode" = NULL
+    WHERE "colonyCode" = OLD.id;
 
     RETURN OLD;
 END;
