@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS "Transform" (
 CREATE TABLE IF NOT EXISTS "AssetCollection" (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) DEFAULT 'DATA.UNNAMED.COLLECTION',
+    "useCase" VARCHAR(255) DEFAULT 'environment',
     "collectionEntries" INT[] DEFAULT '{}'  -- Array of foreign keys pointing to CollectionEntry IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
 );
 
