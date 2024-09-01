@@ -62,8 +62,8 @@ services:
 
   otte_main_backend:
     build:
-      context: .
-      dockerfile: /dockerfiles/main_backend.dockerfile
+      context: "../../BSC-Main-Backend"
+      dockerfile: "./Dockerfile"
     ports:
       - "8080:80"
     env_file:
@@ -75,9 +75,9 @@ services:
       - LANGUAGE_DB_PORT=8433
       - LANGUAGE_DB_NAME=OTTEInternationalizationCatalogues
 
-      - COLONY_ASSETS_DB_HOST=host.docker.internal
-      - COLONY_ASSETS_DB_PORT=8432
-      - COLONY_ASSETS_DB_NAME=ColonyAndAssets
+      - COLONY_ASSET_DB_HOST=host.docker.internal
+      - COLONY_ASSET_DB_PORT=8432
+      - COLONY_ASSET_DB_NAME=ColonyAndAssets
 
       - PLAYER_DB_HOST=host.docker.internal
       - PLAYER_DB_PORT=8431
