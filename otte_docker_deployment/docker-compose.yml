@@ -65,10 +65,11 @@ services:
       context: "../../BSC-Main-Backend"
       dockerfile: "./Dockerfile"
     ports:
-      - "8080:80"
+      - "5386:5386"
     env_file:
       - ../secrets/main_backend_secrets.env
     environment:
+      - SERVICE_PORT=5386
       # DATABASE CONNECTION INFORMATION
       # Duly note access credentials are stored in the /secrets folder
       - LANGUAGE_DB_HOST=host.docker.internal
