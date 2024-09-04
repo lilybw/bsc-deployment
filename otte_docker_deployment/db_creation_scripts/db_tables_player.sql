@@ -29,20 +29,21 @@ CREATE TABLE IF NOT EXISTS "Achievement" (
     -- FOREIGN KEY (icon) REFERENCES "GraphicalAsset"(id)
 );
 
--- PlayerPreferences table for storing player preferences (TODO: relation between 'AvailablePreference' and 'PlayerPreference', 'key'?)
-CREATE TABLE IF NOT EXISTS "PlayerPreference" (
-    id SERIAL PRIMARY KEY,
-    player INT NOT NULL,
-    key VARCHAR(255) NOT NULL,
-    chosenValue VARCHAR(255) NOT NULL,
-    FOREIGN KEY (player) REFERENCES "Player"(id)
-);
-
 -- AvailablePreferences table for storing possible values for preferences
 CREATE TABLE IF NOT EXISTS "AvailablePreference" (
     id SERIAL PRIMARY KEY,
-    key VARCHAR(255) NOT NULL,
-    availableValues VARCHAR(255)[]
+    "preferenceKey" VARCHAR(255) UNIQUE NOT NULL,
+    "availableValues" VARCHAR(255)[]
+);
+
+-- PlayerPreferences table for storing player preferences
+CREATE TABLE IF NOT EXISTS "PlayerPreference" (
+    id SERIAL PRIMARY KEY,
+    player INT NOT NULL,
+    "preferenceKey" VARCHAR(255) NOT NULL,
+    "chosenValue" VARCHAR(255) NOT NULL,
+    FOREIGN KEY (player) REFERENCES "Player"(id),
+    FOREIGN KEY ("preferenceKey") REFERENCES "AvailablePreference"("preferenceKey")
 );
 
 -- InputReactionTime table to store player's reaction times
