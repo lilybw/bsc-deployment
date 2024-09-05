@@ -33,6 +33,7 @@ services:
       - ./db_creation_scripts/db_tables_player.sql:/docker-entrypoint-initdb.d/00_init.sql
       - ./db_creation_scripts/db_functions_player.sql:/docker-entrypoint-initdb.d/01_functions.sql
       - ../secrets/player_db_additional_users.sql:/docker-entrypoint-initdb.d/02_player_db_additional_users.sql
+      - ./db_creation_scripts/db_data_player.sql:/docker-entrypoint-initdb.d/03_player_db_data.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 10s

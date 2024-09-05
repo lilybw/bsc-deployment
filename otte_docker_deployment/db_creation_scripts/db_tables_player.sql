@@ -24,9 +24,6 @@ CREATE TABLE IF NOT EXISTS "Achievement" (
     title VARCHAR(255) DEFAULT 'DATA.UNNAMED.ACHIEVEMENT',
     description TEXT DEFAULT 'UI.DESCRIPTION_MISSING',
     icon INT NOT NULL,
-    player INT NOT NULL,
-    FOREIGN KEY (player) REFERENCES "Player"(id)
-    -- FOREIGN KEY (icon) REFERENCES "GraphicalAsset"(id)
 );
 
 -- AvailablePreferences table for storing possible values for preferences
