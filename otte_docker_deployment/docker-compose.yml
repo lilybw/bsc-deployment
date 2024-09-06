@@ -14,7 +14,7 @@ services:
       - ./db_creation_scripts/db_functions_colony_assets.sql:/docker-entrypoint-initdb.d/01_functions.sql
       - ../secrets/colony_assets_db_additional_users.sql:/docker-entrypoint-initdb.d/02_colony_assets_db_additional_users.sql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ${POSTGRES_DB}"] # Yes this gives a warning when running docker-compose up because the env var is not set, but it stops the log spam
       interval: 10s
       timeout: 5s
       retries: 5
@@ -35,7 +35,7 @@ services:
       - ../secrets/player_db_additional_users.sql:/docker-entrypoint-initdb.d/02_player_db_additional_users.sql
       - ./db_creation_scripts/db_data_player.sql:/docker-entrypoint-initdb.d/03_player_db_data.sql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ${POSTGRES_DB}"] # Yes this gives a warning when running docker-compose up because the env var is not set, but it stops the log spam
       interval: 10s
       timeout: 5s
       retries: 5
@@ -56,13 +56,25 @@ services:
       - ./db_creation_scripts/db_functions_language.sql:/docker-entrypoint-initdb.d/02_db_functions_language.sql
       - ./db_creation_scripts/db_data_language.sql:/docker-entrypoint-initdb.d/03_db_data_language.sql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ${POSTGRES_DB}"] # Yes this gives a warning when running docker-compose up because the env var is not set, but it stops the log spam
       interval: 10s
       timeout: 5s
       retries: 5
 
-  otte_main_backend:
-    container_name: main_backend
+  multiplayer_backend:
+    container_name: otte_multiplayer_backend
+    build:
+      context: "../../bsc-multiplayer-backend"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "8080:8080"
+    env_file:
+      - ../secrets/multiplayer_backend_secrets.env
+    environment:
+      - SERVICE_PORT=8080
+
+  main_backend:
+    container_name: otte_main_backend
     build:
       context: "../../BSC-Main-Backend"
       dockerfile: "./Dockerfile"
@@ -72,6 +84,10 @@ services:
       - ../secrets/main_backend_secrets.env
     environment:
       - SERVICE_PORT=5386
+      # Multiplayer Backend Connection Information
+      - MULTIPLAYER_BACKEND_HOST=host.docker.internal
+      - MULTIPLAYER_BACKEND_PORT=5385
+
       # DATABASE CONNECTION INFORMATION
       # Duly note access credentials are stored in the /secrets folder
       - LANGUAGE_DB_HOST=host.docker.internal
@@ -89,4 +105,6 @@ services:
       - colony_asset_database
       - language_database
       - player_database
+      - multiplayer_backend
+  
   

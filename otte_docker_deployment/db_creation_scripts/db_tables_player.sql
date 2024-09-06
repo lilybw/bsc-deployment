@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS "Achievement" (
 CREATE TABLE IF NOT EXISTS "AvailablePreference" (
     id SERIAL PRIMARY KEY,
     "preferenceKey" VARCHAR(255) UNIQUE NOT NULL,
-    "availableValues" VARCHAR(255)[]
+    "availableValues" VARCHAR(255)[] DEFAULT '{}'
 );
 
 -- PlayerPreferences table for storing player preferences
