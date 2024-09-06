@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS "Achievement" (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) DEFAULT 'DATA.UNNAMED.ACHIEVEMENT',
     description TEXT DEFAULT 'UI.DESCRIPTION_MISSING',
-    icon INT NOT NULL,
+    icon INT NOT NULL
 );
 
 -- AvailablePreferences table for storing possible values for preferences
