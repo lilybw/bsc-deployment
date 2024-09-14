@@ -84,6 +84,11 @@ services:
       - ../secrets/main_backend_secrets.env
     environment:
       - SERVICE_PORT=5386
+      # VitecMV Integration Information
+      - VITEC_CROSS_VERIFICATION=always # always | never, default: alwats, whether or not to actually cross verify users
+      - VITEC_MV_AUTH_HOST=notset
+      - VITEC_MV_AUTH_PORT=NaN
+
       # Multiplayer Backend Connection Information
       - MULTIPLAYER_BACKEND_HOST=host.docker.internal
       - MULTIPLAYER_BACKEND_PORT=5385
