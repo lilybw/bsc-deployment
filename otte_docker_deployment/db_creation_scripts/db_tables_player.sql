@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS "Session" (
     player INT NOT NULL,
     "createdAt" TIMESTAMP DEFAULT NOW(),
     token VARCHAR(255) UNIQUE NOT NULL,
-    "validDuration" INTERVAL DEFAULT '1 hour',
+    "validDuration" INT DEFAULT '3600000',
     "lastCheckIn" TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY (player) REFERENCES "Player"(id)
 );
