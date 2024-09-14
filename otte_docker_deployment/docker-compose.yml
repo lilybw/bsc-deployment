@@ -100,14 +100,17 @@ services:
       - LANGUAGE_DB_HOST=host.docker.internal
       - LANGUAGE_DB_PORT=8433
       - LANGUAGE_DB_NAME=OTTEInternationalizationCatalogues
+      - LANGUAGE_DB_LOGGING_LEVEL=minimal # verbose | minimal - minimal silences all non fatal errors & warnings
 
       - COLONY_ASSET_DB_HOST=host.docker.internal
       - COLONY_ASSET_DB_PORT=8432
       - COLONY_ASSET_DB_NAME=ColonyAndAssets
+      - COLONY_ASSET_DB_LOGGING_LEVEL=minimal # verbose | minimal - minimal silences all non fatal errors & warnings
 
       - PLAYER_DB_HOST=host.docker.internal
       - PLAYER_DB_PORT=8431
       - PLAYER_DB_NAME=PlayerPersistance
+      - PLAYER_DB_LOGGING_LEVEL=minimal # verbose | minimal - minimal silences all non fatal errors & warnings
     depends_on:
       - colony_asset_database
       - language_database
