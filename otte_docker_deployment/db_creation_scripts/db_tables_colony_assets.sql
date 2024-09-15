@@ -2,11 +2,9 @@ CREATE TABLE IF NOT EXISTS "GraphicalAsset" (
     id SERIAL PRIMARY KEY,
     alias VARCHAR(255) NOT NULL, -- For debugging
     type VARCHAR(255) NOT NULL, -- Assuming the MIME type strings
-    blob BYTEA,
     "useCase" VARCHAR(255),
     width INT NOT NULL,
-    height INT NOT NULL,
-    "hasLODs" BOOLEAN NOT NULL
+    height INT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS "NPC" (
