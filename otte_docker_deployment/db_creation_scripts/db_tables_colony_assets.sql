@@ -77,8 +77,16 @@ CREATE TABLE IF NOT EXISTS "Location" (
     name VARCHAR(255) DEFAULT 'DATA.UNNAMED.LOCATION',
     description TEXT DEFAULT 'UI.DESCRIPTION_MISSING',
     minigame INT,
-    appearences INT[] DEFAULT '{}', -- Ids of AssetCollections.
     FOREIGN KEY (minigame) REFERENCES "MiniGame"(id)
+);
+
+CREATE TABLE IF NOT EXISTS "LocationAppearance" (
+    id SERIAL PRIMARY KEY,
+    level INT NOT NULL,
+    location INT NOT NULL,
+    "assetCollection" INT NOT NULL,
+    FOREIGN KEY (location) REFERENCES "Location"(id),
+    FOREIGN KEY ("assetCollection") REFERENCES "AssetCollection"(id)
 );
 
 CREATE TABLE IF NOT EXISTS "ColonyLocation" (
