@@ -121,6 +121,7 @@ CREATE TABLE IF NOT EXISTS "CollectionEntry" (
 CREATE TABLE IF NOT EXISTS "LOD" (
     id SERIAL PRIMARY KEY,
     "detailLevel" INT DEFAULT 1,
+    type VARCHAR(255) NOT NULL, -- MIMEType
     blob BYTEA NOT NULL,
     "graphicalAsset" INT NOT NULL,
     FOREIGN KEY ("graphicalAsset") REFERENCES "GraphicalAsset"(id)
