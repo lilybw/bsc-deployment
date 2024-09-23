@@ -1,7 +1,8 @@
 -- Player table with foreign key to GraphicalAsset for sprite and array of achievement IDs
 CREATE TABLE IF NOT EXISTS "Player" (
     id SERIAL PRIMARY KEY,
-    "IGN" VARCHAR(255) UNIQUE NOT NULL,
+    "firstName" VARCHAR(255) NOT NULL,
+    "lastName" VARCHAR(255) NOT NULL,
     "referenceID" VARCHAR(255) UNIQUE NOT NULL, -- Computed from Vitec ID, main mapping variable between systems
     sprite INT NOT NULL,
     achievements INT[] DEFAULT '{}'  -- Array to store completed achievement IDs
