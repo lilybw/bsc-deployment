@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS "Catalogue" (
 CREATE TABLE IF NOT EXISTS "AvailableLanguages" (
     id serial primary key,
     "code" VARCHAR(255) not null unique,
-    "icon" Integer not null -- Id of graphical asset in other db
+    "icon" Integer not null, -- Id of graphical asset in other db
+    "commonName" VARCHAR(255) not null
 );
 
 CREATE TABLE IF NOT EXISTS "DA_Wordlist" (
