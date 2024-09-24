@@ -11,9 +11,9 @@ INSERT INTO "Catalogue" ("key", "en-GB", "da-DK") VALUES
 ('ACHIEVEMENT.TUTORIAL_COMPLETE.DESCRIPTION', 'You have braved the mighty obstacles of the tutorial - well done!', 'Du har trodset de uoverkommelige forhindringer i undervisningstimen - flot klaret!');
 
 INSERT INTO "AvailableLanguages" ("id", "code", "icon") VALUES 
-(1, 'en-GB', 1),
-(2, 'da-DK', 1),
-(3, 'nb-NO', 1),
-(4, 'sv-SE', 1),
-(5, 'de-DE', 1),
-(6, 'nl-NL', 1);
+(1, 'en-GB', 14),
+(2, 'da-DK', 11),
+(3, 'nb-NO', 12),
+(4, 'sv-SE', 13),
+(5, 'de-DE', 15),
+(6, 'nl-NL', 16);
