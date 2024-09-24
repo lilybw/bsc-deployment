@@ -1,6 +1,6 @@
  -- INSERT DEFAULT VALUES
 
-INSERT INTO "Catalogue" ("key", "EN", "DA") VALUES 
+INSERT INTO "Catalogue" ("key", "en-GB", "da-DK") VALUES 
 ('DATA.UNNAMED.COLLECTION',     'Unnamed Collection',   'Navneløs Gruppering'), 
 ('DATA.UNNAMED.COLONY',         'Unnamed Colony',       'Navneløs Koloni'),
 ('DATA.UNNAMED.MINIGAME',       'Unnamed Minigame',     'Navneløst Miniaturespil'),
@@ -10,3 +10,10 @@ INSERT INTO "Catalogue" ("key", "EN", "DA") VALUES
 ('ACHIEVEMENT.TUTORIAL_COMPLETE.TITLE', 'Tutorial Complete', 'Undervisningstime Fuldført'),
 ('ACHIEVEMENT.TUTORIAL_COMPLETE.DESCRIPTION', 'You have braved the mighty obstacles of the tutorial - well done!', 'Du har trodset de uoverkommelige forhindringer i undervisningstimen - flot klaret!');
 
+INSERT INTO "AvailableLanguages" ("id", "code", "icon") VALUES 
+(1, 'en-GB', 1),
+(2, 'da-DK', 1),
+(3, 'nb-NO', 1),
+(4, 'sv-SE', 1),
+(5, 'de-DE', 1),
+(6, 'nl-NL', 1);

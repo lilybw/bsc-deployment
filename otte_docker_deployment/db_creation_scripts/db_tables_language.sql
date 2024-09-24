@@ -1,8 +1,17 @@
 CREATE TABLE IF NOT EXISTS "Catalogue" (
     key TEXT primary key,
-    "DA" TEXT,
-    "NO" TEXT,
-    "EN" TEXT not null
+    "da-DK" TEXT,
+    "en-GB" TEXT not null,
+    "nb-NO" TEXT,
+    "sv-SE" TEXT,
+    "de-DE" TEXT,
+    "nl-NL" TEXT
+);
+
+CREATE TABLE IF NOT EXISTS "AvailableLanguages" (
+    id serial primary key,
+    "code" VARCHAR(255) not null unique,
+    "icon" Integer not null -- Id of graphical asset in other db
 );
 
 CREATE TABLE IF NOT EXISTS "DA_Wordlist" (

@@ -7,7 +7,7 @@ DECLARE
 BEGIN
     -- Check the trigger depth
     IF pg_trigger_depth() = 0 THEN
-        FOR word IN SELECT unnest(string_to_array(NEW."DA", ' ')) LOOP
+        FOR word IN SELECT unnest(string_to_array(NEW."dk-DA", ' ')) LOOP
             INSERT INTO "DA_Wordlist"(word)
             VALUES (word)
             ON CONFLICT DO NOTHING; -- Conflict will rise if word already exists (unique constraint), which is okay and expected
@@ -24,7 +24,7 @@ DECLARE
 BEGIN
     -- Check the trigger depth
     IF pg_trigger_depth() = 0 THEN
-        FOR word IN SELECT unnest(string_to_array(NEW."EN", ' ')) LOOP
+        FOR word IN SELECT unnest(string_to_array(NEW."en-GB", ' ')) LOOP
             INSERT INTO "EN_Wordlist"(word)
             VALUES (word)
             ON CONFLICT DO NOTHING; -- Conflict will rise if word already exists (unique constraint), which is okay and expected
@@ -41,7 +41,7 @@ DECLARE
 BEGIN
     -- Check the trigger depth
     IF pg_trigger_depth() = 0 THEN
-        FOR word IN SELECT unnest(string_to_array(NEW."NO", ' ')) LOOP
+        FOR word IN SELECT unnest(string_to_array(NEW."nn-NO", ' ')) LOOP
             INSERT INTO "NO_Wordlist"(word)
             VALUES (word)
             ON CONFLICT DO NOTHING; -- Conflict will rise if word already exists (unique constraint), which is okay and expected
@@ -54,17 +54,18 @@ $$ LANGUAGE plpgsql;
 CREATE TRIGGER trigger_add_da_words
 AFTER INSERT ON "Catalogue"
 FOR EACH ROW
-WHEN (NEW."DA" IS NOT NULL)
+WHEN (NEW."da-DK" IS NOT NULL)
 EXECUTE FUNCTION add_words_to_da_wordlist();
 
 CREATE TRIGGER trigger_add_en_words
 AFTER INSERT ON "Catalogue"
 FOR EACH ROW
+WHEN (NEW."en-GB" IS NOT NULL)
 -- EN has the "not null" constraint so no need to check like the others as translations to some languages might not exist initially
 EXECUTE FUNCTION add_words_to_en_wordlist();
 
 CREATE TRIGGER trigger_add_no_words
 AFTER INSERT ON "Catalogue"
 FOR EACH ROW
-WHEN (NEW."NO" IS NOT NULL)
+WHEN (NEW."nb-NO" IS NOT NULL)
 EXECUTE FUNCTION add_words_to_no_wordlist();
