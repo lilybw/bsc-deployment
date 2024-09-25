@@ -98,6 +98,16 @@ CREATE TABLE IF NOT EXISTS "ColonyLocation" (
     FOREIGN KEY (transform) REFERENCES "Transform"(id)
 );
 
+CREATE TABLE IF NOT EXISTS "ColonyLocationPath" (
+    id SERIAL PRIMARY KEY,
+    colony INT NOT NULL,
+    "locationA" INT NOT NULL,
+    "locationB" INT NOT NULL,
+    FOREIGN KEY (colony) REFERENCES "Colony"(id),
+    FOREIGN KEY ("locationA") REFERENCES "ColonyLocation"(id),
+    FOREIGN KEY ("locationB") REFERENCES "ColonyLocation"(id)
+);
+
 CREATE TABLE IF NOT EXISTS "ColonyAsset" (
     id SERIAL PRIMARY KEY,
     "assetCollection" INT NOT NULL,
