@@ -16,7 +16,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('TUTORIAL.NAVIGATION_DEMO.DESCRIPTION',        'Write where you want to go, and press Enter', 'Skriv hvor du vil hen, og tryk Enter'),
 ('TUTORIAL.WELCOME.TITLE',                      'Welcome', 'Velkommen'),
 ('TUTORIAL.TRIAL.TITLE',                        'Your turn', 'Prøv selv'),
-('TUTORIAL.NAVIGATION_TRIAL.DESCRIPTION',       'Visit all locations, you can only walk on the paths', 'Besøg alle steder, du kan kun gå på stierne'),
+('TUTORIAL.NAVIGATION_TRIAL.DESCRIPTION',       'Walk by all locations, you can only walk on the paths', 'Gå til alle steder, du kan kun gå på stierne'),
 ('TUTORIAL.LOCATION_DEMO.DESCRIPTION',          'To enter a location, walk to it, and write Visit', 'For at besøge et sted, gå derhen, og skriv Besøg'),
 ('TUTORIAL.LOCATION_TRIAL.DESCRIPTION',         'Visit the Outer Walls', 'Besøg de Ydre Mure'),
 ('TUTORIAL.MULTPLAYER.DESCRIPTION',             'To have your friends come visit your colony, enter the Space Port', ''),
