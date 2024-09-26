@@ -24,10 +24,10 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('ACTION_INPUT.WRITE_HERE',                     'Type here', 'Skriv her')
 ;
 
-INSERT INTO "AvailableLanguages" ("id", "code", "icon", "commonName") VALUES 
-(1, 'en-GB', 14, 'English'),
-(2, 'da-DK', 11, 'Dansk'),
-(3, 'nb-NO', 12, 'Norsk'),
-(4, 'sv-SE', 13, 'Svenska'),
-(5, 'de-DE', 15, 'Deutsch'),
-(6, 'nl-NL', 16, 'Nederlands');
+INSERT INTO "AvailableLanguages" ("id", "code", "icon", "commonName", "coverage") VALUES 
+(1, 'en-GB', 14, 'English', 100),
+(2, 'da-DK', 11, 'Dansk', 100),
+(3, 'nb-NO', 12, 'Norsk', 0),
+(4, 'sv-SE', 13, 'Svenska', 0),
+(5, 'de-DE', 15, 'Deutsch', 0),
+(6, 'nl-NL', 16, 'Nederlands', 0);
