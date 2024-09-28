@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS "Colony" (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) DEFAULT 'DATA.UNNAMED.COLONY',
     "accLevel" INT DEFAULT 0,
-    "latestVisit" TIMESTAMP,
+    "latestVisit" VARCHAR(255) DEFAULT 'DATA.UNVISITED.COLONY',
     owner INT NOT NULL,
     assets INT[] DEFAULT '{}',  -- Array of foreign keys pointing to ColonyAsset IDs (array for multiple references and to avoid creation conflicts, triggers will handle)
     locations INT[] DEFAULT '{}',  -- Array of foreign keys pointing to ColonyLocation IDs (array for multiple references and to avoid creation conflicts, triggers will handle)

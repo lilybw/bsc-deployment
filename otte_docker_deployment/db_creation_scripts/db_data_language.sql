@@ -6,6 +6,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('DATA.UNNAMED.MINIGAME',                       'Unnamed Minigame',     'Navneløst Miniaturespil'),
 ('DATA.UNNAMED.LOCATION',                       'Unnamed Location',     'Navneløs Lokation'),
 ('DATA.UNNAMED.ACHIEVEMENT',                    'Unnamed Achievement',  'Navneløs Præstation'),
+('DATA.UNVISITED.COLONY',                       'This colony has not yet been visited',  'Denne koloni er endnu ikke besøgt'),
 ('UI.DESCRIPTION_MISSING',                      'Missing Description',  'Manglende Beskrivelse'),
 ('LOCATION.OUTER_WALLS.NAME',                   'Outer Walls', 'Ydre Mure'),
 ('LOCATION.OUTER_WALLS.DESCRIPTION',            'Defends the colony against everything from asteroids to space pirates', 'Beskytter kolonien imod alt fra asteroider til pirater fra rummet'),
