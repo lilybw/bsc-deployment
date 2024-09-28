@@ -23,7 +23,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('TUTORIAL.NAVIGATION_TRIAL.DESCRIPTION',       'Walk by all locations, you can only walk on the paths', 'Gå til alle steder, du kan kun gå på stierne'),
 ('TUTORIAL.LOCATION_DEMO.DESCRIPTION',          'To enter a location, walk to it, and write Visit', 'For at besøge et sted, gå derhen, og skriv Besøg'),
 ('TUTORIAL.LOCATION_TRIAL.DESCRIPTION',         'Visit the Outer Walls', 'Besøg de Ydre Mure'),
-('TUTORIAL.MULTPLAYER.DESCRIPTION',             'To have your friends come visit your colony, enter the Space Port', ''),
+('TUTORIAL.MULTPLAYER.DESCRIPTION',             'To have your friends come visit your colony, enter the Space Port', 'For at venner kan besøge din koloni, åben Rumhavnen'),
 ('TUTORIAL.COMPLETE.TITLE', 'TUTORIAL COMPLETE', 'TUTORIAL GENNEMFØRT'),
 ('ACTION_INPUT.WRITE_HERE',                     'Type here', 'Skriv her')
 ;
