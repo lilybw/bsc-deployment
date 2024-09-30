@@ -133,6 +133,7 @@ CREATE TABLE IF NOT EXISTS "LOD" (
     "detailLevel" INT DEFAULT 1,
     type VARCHAR(255) NOT NULL, -- MIMEType
     blob BYTEA NOT NULL,
+    etag VARCHAR(255) NOT NULL,
     "graphicalAsset" INT NOT NULL,
     FOREIGN KEY ("graphicalAsset") REFERENCES "GraphicalAsset"(id)
 );
