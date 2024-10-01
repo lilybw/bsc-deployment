@@ -214,22 +214,3 @@ CREATE TRIGGER after_colonycode_delete
 AFTER DELETE ON "ColonyCode"
 FOR EACH ROW
 EXECUTE FUNCTION handle_colonycode_deletion();
-
--- New Insert Handlers
-CREATE OR REPLACE FUNCTION handle_collectionentry_insert()
-RETURNS TRIGGER AS $$
-BEGIN
-    IF NEW."assetCollection" IS NOT NULL THEN
-        UPDATE "AssetCollection"
-        SET "collectionEntries" = array_append("collectionEntries", NEW.id)
-        WHERE id = NEW."assetCollection";
-    END IF;
-
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE TRIGGER collectionentry_insert_trigger
-AFTER INSERT ON "CollectionEntry"
-FOR EACH ROW
-EXECUTE FUNCTION handle_collectionentry_insert();
