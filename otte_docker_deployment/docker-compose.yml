@@ -88,6 +88,7 @@ services:
       - DEFAULT_DEBUG_HEADER=URSA-DDH
       - INTERNAL_AUTH_LEVEL=strict # strict | naive, default: strict, whether or not to require sessions
       - ENABLE_TLS=true
+      - MULTIPLAYER_BACKEND_ADDRESS=http://host.docker.internal:9062
       # VitecMV Integration Information
       - VITEC_CROSS_VERIFICATION=always # always | never, default: always, whether or not to actually cross verify users
       - VITEC_MV_AUTH_IP=notset
