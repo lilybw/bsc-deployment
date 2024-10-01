@@ -67,7 +67,7 @@ services:
       context: "../../bsc-multiplayer-backend"
       dockerfile: "./Dockerfile"
     ports:
-      - "8080:8080"
+      - "9062:9062"
     env_file:
       - ../secrets/multiplayer_backend_secrets.env
     environment:
