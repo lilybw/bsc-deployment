@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS "ColonyCode" (
     "value" VARCHAR(6) UNIQUE NOT NULL,
     "owner" INT NOT NULL, -- key of player in player db
     "createdAt" TIMESTAMP DEFAULT NOW(),
-    "validDuration" INT DEFAULT '300000', -- default 5 minutes
+    "validDurationMS" INT DEFAULT '300000', -- default 5 minutes
     FOREIGN KEY (colony) REFERENCES "Colony"(id)
 );
 
