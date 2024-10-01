@@ -85,7 +85,9 @@ CREATE TABLE IF NOT EXISTS "LocationAppearance" (
     id SERIAL PRIMARY KEY,
     level INT NOT NULL,
     location INT NOT NULL,
+    "splashArt" INT NOT NULL,
     "assetCollection" INT NOT NULL,
+    FOREIGN KEY ("splashArt") REFERENCES "GraphicalAsset"(id),
     FOREIGN KEY (location) REFERENCES "Location"(id),
     FOREIGN KEY ("assetCollection") REFERENCES "AssetCollection"(id)
 );

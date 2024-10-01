@@ -15,6 +15,8 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('LOCATION.OUTER_WALLS.DESCRIPTION',            'Defends the colony against everything from asteroids to space pirates', 'Beskytter kolonien imod alt fra asteroider til pirater fra rummet'),
 ('LOCATION.SPACE_PORT.NAME',                    'Space Port', 'Rumhavn'),
 ('LOCATION.SPACE_PORT.DESCRIPTION',             'A vital piece of infrastructure which facilitates trade and tourism', 'Et meget vigtigt sted, der tillader handel og tourisme'),
+('LOCATION.HOME.NAME',                          'Home', 'Hjem'),
+('LOCATION.HOME.DESCRIPTION',                   'A place of comfort and relaxation. Your very own appartment.', 'Et sted at unde sig ro og mag. Din helt egen lejlighed.')
 ('ACHIEVEMENT.TUTORIAL_COMPLETE.TITLE',         'Tutorial Complete', 'Undervisningstime Fuldført'),
 ('ACHIEVEMENT.TUTORIAL_COMPLETE.DESCRIPTION',   'You have braved the mighty obstacles of the tutorial - well done!', 'Du har trodset de uoverkommelige forhindringer i undervisningstimen - flot klaret!'),
 ('TUTORIAL.NAVIGATION_DEMO.DESCRIPTION',        'Write where you want to go, and press Enter', 'Skriv hvor du vil hen, og tryk Enter'),

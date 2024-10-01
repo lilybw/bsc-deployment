@@ -13,6 +13,7 @@ services:
       - ./db_creation_scripts/db_tables_colony_assets.sql:/docker-entrypoint-initdb.d/00_init.sql
       - ./db_creation_scripts/db_functions_colony_assets.sql:/docker-entrypoint-initdb.d/01_functions.sql
       - ../secrets/colony_assets_db_additional_users.sql:/docker-entrypoint-initdb.d/02_colony_assets_db_additional_users.sql
+      - ./db_creation_scripts/db_data_colony_assets.sql:/docker-entrypoint-initdb.d/03_colony_assets_db_data.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d ${POSTGRES_DB}"] # Yes this gives a warning when running docker-compose up because the env var is not set, but it stops the log spam
       interval: 10s
