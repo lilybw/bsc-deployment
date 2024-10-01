@@ -1,3 +1,17 @@
+--Same case as the AssetCollection placeholders
+INSERT INTO "GraphicalAsset" ("id", "alias", "type", "useCase", "width", "height") VALUES 
+(1021, 'placeholder_minigame_asteroids_icon', 'placeholder', 'placeholder', 50, 50),
+(5002, 'placeholder_outer_walls_splash_art_level_one', 'placeholder', 'placeholder', 50, 50),
+(5003, 'placeholder_outer_walls_splash_art_level_two', 'placeholder', 'placeholder', 50, 50),
+(5004, 'placeholder_outer_walls_splash_art_level_three', 'placeholder', 'placeholder', 50, 50),
+(5005, 'placeholder_outer_walls_splash_art_level_four', 'placeholder', 'placeholder', 50, 50),
+(5006, 'placeholder_outer_walls_splash_art_level_five', 'placeholder', 'placeholder', 50, 50),
+(5007, 'placeholder_space_port_splash_art', 'placeholder', 'placeholder', 50, 50),
+(5008, 'placeholder_home_splash_art', 'placeholder', 'placeholder', 50, 50);
+
+INSERT INTO "MiniGame" ("id", "name", "description", "icon", "settings") VALUES 
+(1, 'MINIGAME.ASTEROIDS.NAME', 'MINIGAME.ASTEROIDS.DESCRIPTION', 1021, '{}');
+
 INSERT INTO "Location" ("id", "name", "description", "minigame") VALUES 
 (10, 'LOCATION.OUTER_WALLS.NAME', 'LOCATION.OUTER_WALLS.DESCRIPTION', 1),
 (20, 'LOCATION.SPACE_PORT.NAME', 'LOCATION.SPACE_PORT.DESCRIPTION', null),
@@ -14,17 +28,7 @@ INSERT INTO "AssetCollection" ("id", "name", "useCase") VALUES
 (20, 'PLACEHOLDER_SPACE_PORT', 'placeholder'),
 (30, 'PLACEHOLDER_HOME', 'placeholder');
 
---Same case as the AssetCollection placeholders
-INSERT INTO "GraphicalAsset" ("id", "alias", "type", "useCase", "width", "height") VALUES 
-(5002, "placeholder_outer_walls_splash_art_level_one", "placeholder", "placeholder", 50, 50),
-(5003, "placeholder_outer_walls_splash_art_level_two", "placeholder", "placeholder", 50, 50),
-(5004, "placeholder_outer_walls_splash_art_level_three", "placeholder", "placeholder", 50, 50),
-(5005, "placeholder_outer_walls_splash_art_level_four", "placeholder", "placeholder", 50, 50),
-(5006, "placeholder_outer_walls_splash_art_level_five", "placeholder", "placeholder", 50, 50),
-(5007, "placeholder_space_port_splash_art", "placeholder", "placeholder", 50, 50),
-(5008, "placeholder_home_splash_art", "placeholder", "placeholder", 50, 50);
-
-INSERT INTO "LocationAppearance" ("id", "level", "location", "spashArt", "assetCollection") VALUES
+INSERT INTO "LocationAppearance" ("id", "level", "location", "splashArt", "assetCollection") VALUES
 (1, 1, 10, 5002, 10),
 (2, 2, 10, 5003, 11),
 (3, 3, 10, 5004, 12),
