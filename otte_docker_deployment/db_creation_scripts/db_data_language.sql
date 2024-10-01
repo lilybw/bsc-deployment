@@ -26,6 +26,9 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('TUTORIAL.MULTPLAYER.DESCRIPTION',             'To have your friends come visit your colony, enter the Space Port', 'For at venner kan besøge din koloni, åben Rumhavnen'),
 ('TUTORIAL.COMPLETE.TITLE', 'TUTORIAL COMPLETE', 'TUTORIAL GENNEMFØRT'),
 ('COLONY.UI.LEAVE',                             'Leave Colony', 'Forlad Koloni'),
+('COLONY.UI_BUTTON.JOIN',                             'Join', 'Deltag'),
+('COLONY.UI_BUTTON.LEAVE',                             'Leave', 'Forlad'),
+('COLONY.UI_BUTTON.OPEN',                             'Open', 'Åben'),
 ('ACTION_INPUT.WRITE_HERE',                     'Type here', 'Skriv her')
 ;
 
