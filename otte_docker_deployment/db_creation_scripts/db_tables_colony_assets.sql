@@ -43,10 +43,11 @@ CREATE TABLE IF NOT EXISTS "Colony" (
 
 CREATE TABLE IF NOT EXISTS "ColonyCode" (
     id SERIAL PRIMARY KEY,
-    "lobbyId" INT NOT NULL,  -- foreign key? To multiplayer backend.
+    "lobbyId" INT NOT NULL,  -- Provided by multiplayer backend when asked.
     "serverAddress" VARCHAR(255) NOT NULL,
-    colony INT NOT NULL,  -- Server per lobby?
-    value VARCHAR(6) UNIQUE NOT NULL,
+    colony INT NOT NULL, 
+    "value" VARCHAR(6) UNIQUE NOT NULL,
+    "owner" INT NOT NULL, -- key of player in player db
     FOREIGN KEY (colony) REFERENCES "Colony"(id)
 );
 
