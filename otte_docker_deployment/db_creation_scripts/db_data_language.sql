@@ -16,7 +16,9 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('LOCATION.SPACE_PORT.NAME',                    'Space Port', 'Rumhavn'),
 ('LOCATION.SPACE_PORT.DESCRIPTION',             'A vital piece of infrastructure which facilitates trade and tourism', 'Et meget vigtigt sted, der tillader handel og tourisme'),
 ('LOCATION.HOME.NAME',                          'Home', 'Hjem'),
-('LOCATION.HOME.DESCRIPTION',                   'A place of comfort and relaxation. Your very own appartment.', 'Et sted at unde sig ro og mag. Din helt egen lejlighed.')
+('LOCATION.HOME.DESCRIPTION',                   'A place of comfort and relaxation. Your very own appartment.', 'Et sted at unde sig ro og mag. Din helt egen lejlighed.'),
+('LOCATION.TOWN_HALL.NAME',                     'Town Hall', 'Rådhus'),
+('LOCATION.TOWN_HALL.DESCRIPTION',              'The heart of the colony, where all important, political decisions are made.', 'Koloniens politisk-pulserende hjerte hvor de vigtige beslutninger bliver taget.'),
 ('ACHIEVEMENT.TUTORIAL_COMPLETE.TITLE',         'Tutorial Complete', 'Undervisningstime Fuldført'),
 ('ACHIEVEMENT.TUTORIAL_COMPLETE.DESCRIPTION',   'You have braved the mighty obstacles of the tutorial - well done!', 'Du har trodset de uoverkommelige forhindringer i undervisningstimen - flot klaret!'),
 ('TUTORIAL.NAVIGATION_DEMO.DESCRIPTION',        'Write where you want to go, and press Enter', 'Skriv hvor du vil hen, og tryk Enter'),
