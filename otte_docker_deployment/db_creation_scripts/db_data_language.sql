@@ -25,6 +25,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('TUTORIAL.LOCATION_TRIAL.DESCRIPTION',         'Visit the Outer Walls', 'Besøg de Ydre Mure'),
 ('TUTORIAL.MULTPLAYER.DESCRIPTION',             'To have your friends come visit your colony, enter the Space Port', 'For at venner kan besøge din koloni, åben Rumhavnen'),
 ('TUTORIAL.COMPLETE.TITLE', 'TUTORIAL COMPLETE', 'TUTORIAL GENNEMFØRT'),
+('COLONY.UI.LEAVE',                             'Leave Colony', 'Forlad Koloni'),
 ('ACTION_INPUT.WRITE_HERE',                     'Type here', 'Skriv her')
 ;
 
