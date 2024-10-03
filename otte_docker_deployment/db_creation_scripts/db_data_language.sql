@@ -37,9 +37,9 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ;
 
 INSERT INTO "AvailableLanguages" ("id", "code", "icon", "commonName", "coverage") VALUES 
-(1, 'en-GB', 14, 'English', 100),
-(2, 'da-DK', 11, 'Dansk', 100),
-(3, 'nb-NO', 12, 'Norsk', 0),
-(4, 'sv-SE', 13, 'Svenska', 0),
-(5, 'de-DE', 15, 'Deutsch', 0),
-(6, 'nl-NL', 16, 'Nederlands', 0);
+(1, 'en-GB', 1015, 'English', 100),
+(2, 'da-DK', 1012, 'Dansk', 100),
+(3, 'nb-NO', 1013, 'Norsk', 0),
+(4, 'sv-SE', 1014, 'Svenska', 0),
+(5, 'de-DE', 1016, 'Deutsch', 0),
+(6, 'nl-NL', 1017, 'Nederlands', 0);
