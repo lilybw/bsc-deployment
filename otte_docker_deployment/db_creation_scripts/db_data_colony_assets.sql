@@ -13,11 +13,18 @@ INSERT INTO "GraphicalAsset" ("id", "alias", "type", "useCase", "width", "height
 INSERT INTO "MiniGame" ("id", "name", "description", "icon", "settings") VALUES 
 (1, 'MINIGAME.ASTEROIDS.NAME', 'MINIGAME.ASTEROIDS.DESCRIPTION', 1021, '{}');
 
-INSERT INTO "Location" ("id", "name", "description", "minigame") VALUES 
+INSERT INTO "Location" ("id", "name", "description", "minigame") VALUES
 (10, 'LOCATION.OUTER_WALLS.NAME', 'LOCATION.OUTER_WALLS.DESCRIPTION', 1),
 (20, 'LOCATION.SPACE_PORT.NAME', 'LOCATION.SPACE_PORT.DESCRIPTION', null),
 (30, 'LOCATION.HOME.NAME', 'LOCATION.HOME.DESCRIPTION', null),
-(40, 'LOCATION.TOWN_HALL.NAME', 'LOCATION.TOWN_HALL.DESCRIPTION', null); 
+(40, 'LOCATION.TOWN_HALL.NAME', 'LOCATION.TOWN_HALL.DESCRIPTION', null),
+(50, 'LOCATION.SHIELD_GENERATORS.NAME', 'LOCATION.SHIELD_GENERATORS.DESCRIPTION', null),
+(60, 'LOCATION.AQUIFER_PLANT.NAME', 'LOCATION.AQUIFER_PLANT.DESCRIPTION', null),
+(70, 'LOCATION.AGRICULTURE_CENTER.NAME', 'LOCATION.AGRICULTURE_CENTER.DESCRIPTION', null),
+(80, 'LOCATION.VEHICLE_STORAGE.NAME', 'LOCATION.VEHICLE_STORAGE.DESCRIPTION', null),
+(90, 'LOCATION.CANTINA.NAME', 'LOCATION.CANTINA.DESCRIPTION', null),
+(100, 'LOCATION.RADAR_DISH.NAME', 'LOCATION.RADAR_DISH.DESCRIPTION', null),
+(110, 'LOCATION.MINING_FACILITY.NAME', 'LOCATION.MINING_FACILITY.DESCRIPTION', null);
 
 --Devour manages these, however, on boot (when this file is run) Devour has yet to populate it.
 --That would cause foreign key constraint errors, so we'll be using placeholder
@@ -29,7 +36,14 @@ INSERT INTO "AssetCollection" ("id", "name", "useCase") VALUES
 (14, 'PLACEHOLDER_OUTER_WALLS_LEVEL_5', 'placeholder'),
 (20, 'PLACEHOLDER_SPACE_PORT', 'placeholder'),
 (30, 'PLACEHOLDER_HOME', 'placeholder'),
-(40, 'PLACEHOLDER_TOWN_HALL', 'placeholder');
+(40, 'PLACEHOLDER_TOWN_HALL', 'placeholder'),
+(50, 'PLACEHOLDER_SHIELD_GENERATORS', 'placeholder'),
+(60, 'PLACEHOLDER_AQUIFER_PLANT', 'placeholder'),
+(70, 'PLACEHOLDER_AGRICULTURE_CENTER', 'placeholder'),
+(80, 'PLACEHOLDER_VEHICLE_STORAGE', 'placeholder'),
+(90, 'PLACEHOLDER_CANTINA', 'placeholder'),
+(100, 'PLACEHOLDER_RADAR_DISH', 'placeholder'),
+(110, 'PLACEHOLDER_MINING_FACILITY', 'placeholder');
 
 INSERT INTO "LocationAppearance" ("id", "level", "location", "splashArt", "assetCollection") VALUES
 (1, 1, 10, 5002, 10),
@@ -39,4 +53,11 @@ INSERT INTO "LocationAppearance" ("id", "level", "location", "splashArt", "asset
 (5, 5, 10, 5006, 14),
 (6, 1, 20, 5007, 20),
 (7, 1, 30, 5008, 30),
-(8, 1, 40, 5009, 40);
+(8, 1, 40, 5009, 40),
+(9, 1, 50, 5010, 50),
+(10, 1, 60, 5011, 60),
+(11, 1, 70, 5012, 70),
+(12, 1, 80, 5013, 80),
+(13, 1, 90, 5014, 90),
+(14, 1, 100, 5015, 100),
+(15, 1, 110, 5016, 110);
