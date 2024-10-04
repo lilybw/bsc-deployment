@@ -27,6 +27,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('DATA.VISITED.COLONY_HOURS',                   'hours ago',  'timer siden'),
 ('DATA.VISITED.COLONY_DAYS',                    'days ago',  'dage siden'),
 ('UI.DESCRIPTION_MISSING',                      'Missing Description',  'Manglende Beskrivelse'),
+('LOCATION.USER_ACTION.ENTER',                  'Enter', 'Besøg'),
 ('LOCATION.OUTER_WALLS.NAME',                   'Outer Walls', 'Ydre Mure'),
 ('LOCATION.OUTER_WALLS.DESCRIPTION',            'Defends the colony against everything from asteroids to space pirates', 'Beskytter kolonien imod alt fra asteroider til pirater fra rummet'),
 ('LOCATION.SPACE_PORT.NAME',                    'Spaceport', 'Rumhavn'),
@@ -58,11 +59,11 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('TUTORIAL.LOCATION_DEMO.DESCRIPTION',          'To enter a location, walk to it, and write Visit', 'For at besøge et sted, gå derhen, og skriv Besøg'),
 ('TUTORIAL.LOCATION_TRIAL.DESCRIPTION',         'Visit the Outer Walls', 'Besøg de Ydre Mure'),
 ('TUTORIAL.MULTPLAYER.DESCRIPTION',             'To have your friends come visit your colony, enter the Space Port', 'For at venner kan besøge din koloni, åben Rumhavnen'),
-('TUTORIAL.COMPLETE.TITLE', 'TUTORIAL COMPLETE', 'TUTORIAL GENNEMFØRT'),
+('TUTORIAL.COMPLETE.TITLE',                     'TUTORIAL COMPLETE', 'TUTORIAL GENNEMFØRT'),
 ('COLONY.UI.LEAVE',                             'Leave Colony', 'Forlad Koloni'),
-('COLONY.UI_BUTTON.JOIN',                             'Join', 'Deltag'),
-('COLONY.UI_BUTTON.LEAVE',                             'Leave', 'Forlad'),
-('COLONY.UI_BUTTON.OPEN',                             'Open', 'Åben'),
+('COLONY.UI_BUTTON.JOIN',                       'Join', 'Deltag'),
+('COLONY.UI_BUTTON.LEAVE',                      'Leave', 'Forlad'),
+('COLONY.UI_BUTTON.OPEN',                       'Open', 'Åben'),
 ('ACTION_INPUT.WRITE_HERE',                     'Type here', 'Skriv her')
 ;
 
