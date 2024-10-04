@@ -1,5 +1,5 @@
 --Same case as the AssetCollection placeholders
-INSERT INTO "GraphicalAsset" ("id", "alias", "type", "useCase", "width", "height") VALUES 
+INSERT INTO "GraphicalAsset" ("id", "alias", "type", "useCase", "width", "height") VALUES
 (1021, 'placeholder_minigame_asteroids_icon', 'placeholder', 'placeholder', 50, 50),
 (5002, 'placeholder_outer_walls_splash_art_level_one', 'placeholder', 'placeholder', 50, 50),
 (5003, 'placeholder_outer_walls_splash_art_level_two', 'placeholder', 'placeholder', 50, 50),
@@ -8,9 +8,16 @@ INSERT INTO "GraphicalAsset" ("id", "alias", "type", "useCase", "width", "height
 (5006, 'placeholder_outer_walls_splash_art_level_five', 'placeholder', 'placeholder', 50, 50),
 (5007, 'placeholder_space_port_splash_art', 'placeholder', 'placeholder', 50, 50),
 (5008, 'placeholder_home_splash_art', 'placeholder', 'placeholder', 50, 50),
-(5009, 'placeholder_town_hall_splash_art', 'placeholder', 'placeholder', 50, 50);
+(5009, 'placeholder_town_hall_splash_art', 'placeholder', 'placeholder', 50, 50),
+(5010, 'placeholder_shield_generators_splash_art', 'placeholder', 'placeholder', 50, 50),
+(5011, 'placeholder_aquifer_plant_splash_art', 'placeholder', 'placeholder', 50, 50),
+(5012, 'placeholder_agriculture_center_splash_art', 'placeholder', 'placeholder', 50, 50),
+(5013, 'placeholder_vehicle_storage_splash_art', 'placeholder', 'placeholder', 50, 50),
+(5014, 'placeholder_cantina_splash_art', 'placeholder', 'placeholder', 50, 50),
+(5015, 'placeholder_radar_dish_splash_art', 'placeholder', 'placeholder', 50, 50),
+(5016, 'placeholder_mining_facility_splash_art', 'placeholder', 'placeholder', 50, 50);
 
-INSERT INTO "MiniGame" ("id", "name", "description", "icon", "settings") VALUES 
+INSERT INTO "MiniGame" ("id", "name", "description", "icon", "settings") VALUES
 (1, 'MINIGAME.ASTEROIDS.NAME', 'MINIGAME.ASTEROIDS.DESCRIPTION', 1021, '{}');
 
 -- ursa_frontend/src/integrations/main_backend/constants.ts is depending on the following ids:
