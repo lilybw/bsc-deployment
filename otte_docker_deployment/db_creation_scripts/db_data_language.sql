@@ -3,7 +3,7 @@
 INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK") VALUES 
 ('MENU.OPTION.NEW_COLONY',                      'New', 'Ny'),
 ('MENU.OPTION.CONTINUE_COLONY',                 'Continue', 'Fortsæt'),
-('MENU.OPTION.JOIN_COLONY',                     'Join', 'Detlag'),
+('MENU.OPTION.JOIN_COLONY',                     'Join', 'Deltag'),
 ('MENU.OPTION.TUTORIAL',                        'Tutorial', 'Tutorial'),
 ('MENU.OPTION.CREATE_COLONY',                   'Create Colony', 'Lav Ny Koloni'),
 ('MENU.PAGE_TITTLE.SELECT_COLONY',              'Select', 'Vælg En Koloni'),
