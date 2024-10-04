@@ -13,6 +13,7 @@ INSERT INTO "GraphicalAsset" ("id", "alias", "type", "useCase", "width", "height
 INSERT INTO "MiniGame" ("id", "name", "description", "icon", "settings") VALUES 
 (1, 'MINIGAME.ASTEROIDS.NAME', 'MINIGAME.ASTEROIDS.DESCRIPTION', 1021, '{}');
 
+-- ursa_frontend/src/integrations/main_backend/constant.ts is depending on the following ids:
 INSERT INTO "Location" ("id", "name", "description", "minigame") VALUES
 (10, 'LOCATION.OUTER_WALLS.NAME', 'LOCATION.OUTER_WALLS.DESCRIPTION', 1),
 (20, 'LOCATION.SPACE_PORT.NAME', 'LOCATION.SPACE_PORT.DESCRIPTION', null),
