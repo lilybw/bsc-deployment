@@ -11,7 +11,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('MENU.PAGE_TITLE.CREATE_COLONY',               'Create a new colony', 'Lav en ny koloni'),
 ('MENU.PAGE_TITLE.JOIN_COLONY',                 'Join Colony', 'Tilslut dig en koloni'),
 ('MENU.SUB_TITLE.NO_COLONIES_YET',              'No Colonies Yet', 'Ingen Kolonier Endnu'),
-('MENU.SUB_TITLE.INSERT_CODE_HERE',             'Insert The Colony Code Here', 'Insæt Koloniens Kode her'),
+('MENU.SUB_TITLE.INSERT_CODE_HERE',             'Insert The Colony Code Here', 'Indsæt Koloniens Kode her'),
 ('MENU.NAVIGATION.BACK',                        'Back', 'Tilbage'),
 ('MENU.NAVIGATION.CONTINUE',                    'Continue', 'Fortsæt'),
 ('MENU.NAVIGATION.CANCEL',                      'Cancel', 'Afbryd'),
