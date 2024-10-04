@@ -1,6 +1,21 @@
  -- INSERT DEFAULT VALUES
 
 INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK") VALUES 
+('MENU.OPTION.NEW_COLONY',                      'New', 'Ny'),
+('MENU.OPTION.CONTINUE_COLONY',                 'Continue', 'Fortsæt'),
+('MENU.OPTION.JOIN_COLONY',                     'Join', 'Detlag'),
+('MENU.OPTION.TUTORIAL',                        'Tutorial', 'Tutorial'),
+('MENU.OPTION.CREATE_COLONY',                   'Create Colony', 'Lav Ny Koloni'),
+('MENU.PAGE_TITTLE.SELECT_COLONY',              'Select', 'Vælg En Koloni'),
+('MENU.SUB_TITLE.NAME_COLONY',                  'Name Your Colony', 'Navngiv Din Koloni'),
+('MENU.PAGE_TITLE.CREATE_COLONY',               'Create a new colony', 'Lav en ny koloni'),
+('MENU.PAGE_TITLE.JOIN_COLONY',                 'Join Colony', 'Tilslut dig en koloni'),
+('MENU.SUB_TITLE.NO_COLONIES_YET',              'No Colonies Yet', 'Ingen Kolonier Endnu'),
+('MENU.SUB_TITLE.INSERT_CODE_HERE',             'Insert The Colony Code Here', 'Insæt Koloniens Kode her'),
+('MENU.NAVIGATION.BACK',                        'Back', 'Tilbage'),
+('MENU.NAVIGATION.CONTINUE',                    'Continue', 'Fortsæt'),
+('MENU.NAVIGATION.CANCEL',                      'Cancel', 'Afbryd'),
+('MENU.NAVIGATION.CONFIRM',                     'Confirm', 'Godkend'),
 ('DATA.UNNAMED.COLLECTION',                     'Unnamed Collection',   'Navneløs Gruppering'), 
 ('DATA.UNNAMED.COLONY',                         'Unnamed Colony',       'Navneløs Koloni'),
 ('DATA.UNNAMED.MINIGAME',                       'Unnamed Minigame',     'Navneløst Miniaturespil'),
