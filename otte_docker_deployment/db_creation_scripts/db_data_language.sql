@@ -16,6 +16,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('MENU.NAVIGATION.CONTINUE',                    'Continue', 'Fortsæt'),
 ('MENU.NAVIGATION.CANCEL',                      'Cancel', 'Afbryd'),
 ('MENU.NAVIGATION.CONFIRM',                     'Confirm', 'Godkend'),
+('MENU.NAVIGATION.NEXT',                        'Next', 'Næste'),
 ('DATA.UNNAMED.COLLECTION',                     'Unnamed Collection',   'Navneløs Gruppering'), 
 ('DATA.UNNAMED.COLONY',                         'Unnamed Colony',       'Navneløs Koloni'),
 ('DATA.UNNAMED.MINIGAME',                       'Unnamed Minigame',     'Navneløst Miniaturespil'),
