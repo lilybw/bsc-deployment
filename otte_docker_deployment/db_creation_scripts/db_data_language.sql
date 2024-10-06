@@ -6,7 +6,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('MENU.OPTION.JOIN_COLONY',                     'Join', 'Deltag'),
 ('MENU.OPTION.TUTORIAL',                        'Tutorial', 'Tutorial'),
 ('MENU.OPTION.CREATE_COLONY',                   'Create Colony', 'Lav Ny Koloni'),
-('MENU.PAGE_TITTLE.SELECT_COLONY',              'Select', 'Vælg En Koloni'),
+('MENU.PAGE_TITLE.SELECT_COLONY',              'Select', 'Vælg En Koloni'),
 ('MENU.SUB_TITLE.NAME_COLONY',                  'Name Your Colony', 'Navngiv Din Koloni'),
 ('MENU.PAGE_TITLE.CREATE_COLONY',               'Create a new colony', 'Lav en ny koloni'),
 ('MENU.PAGE_TITLE.JOIN_COLONY',                 'Join Colony', 'Tilslut dig en koloni'),
