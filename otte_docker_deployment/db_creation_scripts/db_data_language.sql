@@ -65,7 +65,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('COLONY.UI_BUTTON.LEAVE',                      'Leave', 'Forlad'),
 ('COLONY.UI_BUTTON.OPEN',                       'Open', 'Åben'),
 ('ACTION_INPUT.WRITE_HERE',                     'Type here', 'Skriv her'),
-('ERRORS.CONNECTION.MULTIPLAYER_BACKEND',       'No connection to the multiplayer servers', 'Ingen forbindelse multiplayer serverene'),
+('ERRORS.CONNECTION.MULTIPLAYER_BACKEND',       'No connection to the multiplayer servers', 'Ingen forbindelse til multiplayer serverene'),
 ('ERRORS.PLEASE_ENTER_CODE',                    'Please enter a colony code', 'Venligst indtast en koloni kode'),
 ('ERRORS.NUMERIC_ONLY',                         'Only numbers allowed', 'Kun tal er tilladt'),
 ('ERRORS.CODE_TOO_SHORT',                       'Colony code is too short. It must be 6 digits', 'Koloni koden er for kort, den skal være på 6 cifre'),
