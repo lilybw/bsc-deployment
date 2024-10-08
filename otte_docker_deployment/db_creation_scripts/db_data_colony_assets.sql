@@ -23,10 +23,10 @@ INSERT INTO "GraphicalAsset" ("id", "alias", "type", "useCase", "width", "height
 INSERT INTO "MiniGame" ("id", "name", "description", "icon", "settings") VALUES
 (1, 'MINIGAME.ASTEROIDS.NAME', 'MINIGAME.ASTEROIDS.DESCRIPTION', 1021, '{}');
 
-INSERT INTO "MiniGameDifficulty" ("id", "minigame", "icon", "name", "description", "overwritingSettings") VALUES
-(1, 1, 7000, 'MINIGAME.DIFFICULTY.EASY', 'Easy', '{}'),
-(2, 1, 7001, 'MINIGAME.DIFFICULTY.MEDIUM', 'Medium', '{}'),
-(3, 1, 7002, 'MINIGAME.DIFFICULTY.HARD', 'Hard', '{}');
+INSERT INTO "MiniGameDifficulty" ("id", "minigame", "icon", "name", "description", "requiredLevel", "overwritingSettings") VALUES
+(1, 1, 7000, 'MINIGAME.DIFFICULTY.EASY', 'Easy', 1, '{}'),
+(2, 1, 7001, 'MINIGAME.DIFFICULTY.MEDIUM', 'Medium', 2, '{}'),
+(3, 1, 7002, 'MINIGAME.DIFFICULTY.HARD', 'Hard', 3, '{}');
 
 -- ursa_frontend/src/integrations/main_backend/constants.ts is depending on the following ids:
 INSERT INTO "Location" ("id", "name", "description", "minigame") VALUES
