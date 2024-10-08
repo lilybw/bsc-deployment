@@ -15,10 +15,18 @@ INSERT INTO "GraphicalAsset" ("id", "alias", "type", "useCase", "width", "height
 (5013, 'placeholder_vehicle_storage_splash_art', 'placeholder', 'placeholder', 50, 50),
 (5014, 'placeholder_cantina_splash_art', 'placeholder', 'placeholder', 50, 50),
 (5015, 'placeholder_radar_dish_splash_art', 'placeholder', 'placeholder', 50, 50),
-(5016, 'placeholder_mining_facility_splash_art', 'placeholder', 'placeholder', 50, 50);
+(5016, 'placeholder_mining_facility_splash_art', 'placeholder', 'placeholder', 50, 50),
+(7000, 'placeholder_minigame_difficulty_easy_icon', 'icon', 'placeholder', 50, 50),
+(7001, 'placeholder_minigame_difficulty_medium_icon', 'icon', 'placeholder', 50, 50),
+(7002, 'placeholder_minigame_difficulty_hard_icon', 'icon', 'placeholder', 50, 50);
 
 INSERT INTO "MiniGame" ("id", "name", "description", "icon", "settings") VALUES
 (1, 'MINIGAME.ASTEROIDS.NAME', 'MINIGAME.ASTEROIDS.DESCRIPTION', 1021, '{}');
+
+INSERT INTO "MiniGameDifficulty" ("id", "minigame", "icon", "name", "description", "overwritingSettings") VALUES
+(1, 1, 7000, 'MINIGAME.DIFFICULTY.EASY', 'Easy', '{}'),
+(2, 1, 7001, 'MINIGAME.DIFFICULTY.MEDIUM', 'Medium', '{}'),
+(3, 1, 7002, 'MINIGAME.DIFFICULTY.HARD', 'Hard', '{}');
 
 -- ursa_frontend/src/integrations/main_backend/constants.ts is depending on the following ids:
 INSERT INTO "Location" ("id", "name", "description", "minigame") VALUES

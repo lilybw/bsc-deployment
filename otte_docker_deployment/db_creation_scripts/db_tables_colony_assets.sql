@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS "MiniGameDifficulty" (
     id SERIAL PRIMARY KEY,
     minigame INT NOT NULL,
     icon INT NOT NULL,
-    name VARCHAR(5) DEFAULT '?',  -- Roman Numerals as string.
+    name VARCHAR(255) DEFAULT '?',  -- Roman Numerals as string.
     description TEXT DEFAULT 'UI.DESCRIPTION_MISSING',
     "overwritingSettings" JSON NOT NULL,  -- Overwrites default settings with these specific to the difficulty level
     FOREIGN KEY (minigame) REFERENCES "MiniGame"(id),

@@ -28,6 +28,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('DATA.VISITED.COLONY_DAYS',                    'days ago',  'dage siden'),
 ('UI.DESCRIPTION_MISSING',                      'Missing Description',  'Manglende Beskrivelse'),
 ('LOCATION.USER_ACTION.ENTER',                  'Enter', 'Besøg'),
+('LOCATION.USER_ACTION.LEAVE',                  'Leave', 'Forlad'),
 ('LOCATION.OUTER_WALLS.NAME',                   'Outer Walls', 'Ydre Mure'),
 ('LOCATION.OUTER_WALLS.DESCRIPTION',            'Defends the colony against everything from asteroids to space pirates', 'Beskytter kolonien imod alt fra asteroider til pirater fra rummet'),
 ('LOCATION.SPACE_PORT.NAME',                    'Spaceport', 'Rumhavn'),
@@ -71,8 +72,13 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('ERRORS.CODE_TOO_SHORT',                       'Colony code is too short. It must be 6 digits', 'Koloni koden er for kort, den skal være på 6 cifre'),
 ('ERRORS.CODE_TOO_LONG',                        'Colony code is too long. It must be 6 digits', 'Koloni koden er for kort, den skal være på 6 cifre'),
 ('ERRORS.NAN',                                  'That is not a number', 'Det der, er ikke et tal'),
-('ERRORS.CODE_CANT_BE_NEGATIVE',                'Colony code cant be negative', 'Koloniens kode kan ikke være et negativt tal')
-;
+('ERRORS.CODE_CANT_BE_NEGATIVE',                'Colony code cant be negative', 'Koloniens kode kan ikke være et negativt tal'),
+('MINIGAME.START',                              'Start', 'Start'),
+('MINIGAME.ASTEROIDS.DESCRIPTION',              'Defend the colony against a barrage of incomming asteroids, but be careful with your aim', 'Beskyt kolonien mod en regn af indkommende asteroider, men pas på hvor du skyder'),
+('MINIGAME.ASTEROIDS.NAME',                     'Asteroids', 'Asteroider'),
+('MINIGAME.DIFFICULTY.EASY',                    'Easy', 'Let'),
+('MINIGAME.DIFFICULTY.MEDIUM',                  'Medium', 'Middel'),
+('MINIGAME.DIFFICULTY.HARD',                    'Hard', 'Svær');
 
 INSERT INTO "AvailableLanguages" ("id", "code", "icon", "commonName", "coverage") VALUES 
 (1, 'en-GB', 1015, 'English', 100),
