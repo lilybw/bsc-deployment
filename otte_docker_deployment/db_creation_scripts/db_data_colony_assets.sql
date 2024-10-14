@@ -21,12 +21,47 @@ INSERT INTO "GraphicalAsset" ("id", "alias", "type", "useCase", "width", "height
 (7002, 'placeholder_minigame_difficulty_hard_icon', 'icon', 'placeholder', 50, 50);
 
 INSERT INTO "MiniGame" ("id", "name", "description", "icon", "settings") VALUES
-(1, 'MINIGAME.ASTEROIDS.NAME', 'MINIGAME.ASTEROIDS.DESCRIPTION', 1021, '{}');
+(1, 'MINIGAME.ASTEROIDS.NAME', 'MINIGAME.ASTEROIDS.DESCRIPTION', 1021, 
+'{
+    "minTimeTillImpactS": 5,
+    "maxTimeTillImpactS": 10,
+    "charCodeLength": 2,
+    "asteroidsPerSecondAtStart": 1,
+    "asteroidsPerSecondAt80Percent": 1,
+    "colonyHealth": 3,
+    "asteroidMaxHealth": 1,
+    "stunDurationS": 1,
+    "friendlyFirePenaltyS": 1,
+    "friendlyFirePenaltyMultiplier": 2,
+    "timeBetweenShotsS": 0.2,
+    "survivalTimeS": 300,
+
+    "spawnRateCoopModifier": 0.5
+}'
+);
 
 INSERT INTO "MiniGameDifficulty" ("id", "minigame", "icon", "name", "description", "requiredLevel", "overwritingSettings") VALUES
 (1, 1, 7000, 'MINIGAME.DIFFICULTY.EASY', 'Easy', 1, '{}'),
-(2, 1, 7001, 'MINIGAME.DIFFICULTY.MEDIUM', 'Medium', 2, '{}'),
-(3, 1, 7002, 'MINIGAME.DIFFICULTY.HARD', 'Hard', 3, '{}');
+(2, 1, 7001, 'MINIGAME.DIFFICULTY.MEDIUM', 'Medium', 2, 
+'{
+    "asteroidsPerSecondAtStart": 1,
+    "asteroidsPerSecondAt80Percent": 2,
+    "colonyHealth": 2,
+    "minTimeTillImpactS": 4,
+    "maxTimeTillImpactS": 8,
+    "asteroidMaxHealth": 2,
+    "charCodeLength": 3
+}'),
+(3, 1, 7002, 'MINIGAME.DIFFICULTY.HARD', 'Hard', 3, 
+'{
+    "asteroidsPerSecondAtStart": 2,
+    "asteroidsPerSecondAt80Percent": 4,
+    "colonyHealth": 1,
+    "minTimeTillImpactS": 3,
+    "maxTimeTillImpactS": 6,
+    "asteroidMaxHealth": 3,
+    "charCodeLength": 4
+}');
 
 -- ursa_frontend/src/integrations/main_backend/constants.ts is depending on the following ids:
 INSERT INTO "Location" ("id", "name", "description", "minigame") VALUES
