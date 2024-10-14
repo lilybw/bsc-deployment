@@ -74,6 +74,10 @@ services:
     environment:
       - SERVICE_PORT=8080
 
+      # Main Backend Connection Information
+      - MAIN_BACKEND_HOST=host.docker.internal
+      - MAIN_BACKEND_PORT=5386
+
   main_backend:
     container_name: otte_main_backend
     build:
