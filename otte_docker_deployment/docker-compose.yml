@@ -93,15 +93,18 @@ services:
       - DEFAULT_DEBUG_HEADER=URSA-DDH
       - INTERNAL_AUTH_LEVEL=strict # strict | naive, default: strict, whether or not to require sessions
       - ENABLE_TLS=true
-      - MULTIPLAYER_SERVER_ADDRESS=http://host.docker.internal:9062
       # VitecMV Integration Information
       - VITEC_CROSS_VERIFICATION=never # always | never, default: always, whether or not to actually cross verify users
       - VITEC_MV_AUTH_IP=notset
       - VITEC_MV_AUTH_PORT=NaN
 
       # Multiplayer Backend Connection Information
-      - MULTIPLAYER_BACKEND_HOST=host.docker.internal
-      - MULTIPLAYER_BACKEND_PORT=5385
+      # Internal: Address the main backend uses for connection
+      # External: Address anyone else uses
+      - MULTIPLAYER_BACKEND_HOST_EXTERNAL=localhost
+      - MULTIPLAYER_BACKEND_HOST_INTERNAL=host.docker.internal
+      - MULTIPLAYER_BACKEND_PORT_EXTERNAL=9062
+      - MULTIPLAYER_BACKEND_PORT_INTERNAL=9062
 
       # DATABASE CONNECTION INFORMATION
       # Duly note access credentials are stored in the /secrets folder
