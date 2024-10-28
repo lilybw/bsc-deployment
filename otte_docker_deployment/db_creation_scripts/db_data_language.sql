@@ -6,7 +6,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('MENU.OPTION.JOIN_COLONY',                     'Join', 'Deltag'),
 ('MENU.OPTION.TUTORIAL',                        'Tutorial', 'Tutorial'),
 ('MENU.OPTION.CREATE_COLONY',                   'Create Colony', 'Lav Ny Koloni'),
-('MENU.PAGE_TITLE.SELECT_COLONY',              'Select', 'Vælg En Koloni'),
+('MENU.PAGE_TITLE.SELECT_COLONY',               'Select', 'Vælg En Koloni'),
 ('MENU.SUB_TITLE.NAME_COLONY',                  'Name Your Colony', 'Navngiv Din Koloni'),
 ('MENU.PAGE_TITLE.CREATE_COLONY',               'Create a new colony', 'Lav en ny koloni'),
 ('MENU.PAGE_TITLE.JOIN_COLONY',                 'Join Colony', 'Tilslut dig en koloni'),
@@ -83,7 +83,11 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('MINIGAME.ASTEROIDS.NAME',                     'Asteroids', 'Asteroider'),
 ('MINIGAME.DIFFICULTY.EASY',                    'Easy', 'Let'),
 ('MINIGAME.DIFFICULTY.MEDIUM',                  'Medium', 'Middel'),
-('MINIGAME.DIFFICULTY.HARD',                    'Hard', 'Svær');
+('MINIGAME.DIFFICULTY.HARD',                    'Hard', 'Svær'),
+('MINIGAME.DIFFICULTY.INSANE',                  'Insane', 'Vanvittig'),
+('NOTIFICATION.MULTIPLAYER.LOBBY_CLOSING',      'The lobby is closing', 'Lobbyen lukker'),
+('NOTIFICATION.MULTIPLAYER.SERVER_CLOSING',     'The server is closing', 'Serveren lukker'),
+('NOTIFICATION.RETURNING_TO_MENU_IN',           'Returning to menu in', 'Går tilbage til menuen om');
 
 INSERT INTO "AvailableLanguages" ("id", "code", "icon", "commonName", "coverage") VALUES 
 (1, 'en-GB', 1015, 'English', 100),
