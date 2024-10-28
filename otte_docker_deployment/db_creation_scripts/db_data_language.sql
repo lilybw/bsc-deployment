@@ -49,7 +49,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('LOCATION.VEHICLE_STORAGE.NAME',               'Garage', 'Garage'),
 ('LOCATION.VEHICLE_STORAGE.DESCRIPTION',        'A secure area for storing and maintaining various vehicles', 'Et sikkert område til opbevaring og vedligeholdelse af forskellige køretøjer'),
 ('LOCATION.CANTINA.NAME',                       'Cantina', 'Kantine'),
-('LOCATION.CANTINA.DESCRIPTION',                'A popular gathering place for colonists to relax and socialize', 'Et populært samlingssted for kolonister til at slappe af og socialisere'),
+('LOCATION.CANTINA.DESCRIPTION',                'A popular gathering place for inhabitants to relax and socialize', 'Et populært samlingssted for beboere at slappe af og mingle'),
 ('LOCATION.RADAR_DISH.NAME',                    'Radar Dish', 'Radarantenne'),
 ('LOCATION.RADAR_DISH.DESCRIPTION',             'A crucial communication hub for the colony', 'Et afgørende kommunikationsknudepunkt for kolonien'),
 ('LOCATION.MINING_FACILITY.NAME',               'Mine', 'Mine'),
