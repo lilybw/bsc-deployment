@@ -89,7 +89,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('NOTIFICATION.MULTIPLAYER.LOBBY_CLOSING',      'The lobby is closing', 'Lobbyen lukker'),
 ('NOTIFICATION.MULTIPLAYER.SERVER_CLOSING',     'The server is closing', 'Serveren lukker'),
 ('NOTIFICATION.RETURNING_TO_MENU_IN',           'Returning to menu in', 'Går tilbage til menuen om'),
-('HANDPLACEMENT_CHECK.DESCRIPTION_ACCEPT',      'To accept: Check your hand placement, and press the key pairs one at a time', 'For at acceptere: Tjek dine hænders placering, og tryk på hvert par af taster en af gangen'),
+('HANDPLACEMENT_CHECK.DESCRIPTION_ACCEPT',      'To accept: Check your hand placement, and press the pairs of keys, two keys at a time', 'For at acceptere: Tjek dine hænders placering, og tryk på hvert par af taster, 2 taster af gangen'),
 ('HANDPLACEMENT_CHECK.DESCRIPTION_DECLINE',     'To decline: Write \"Leave\" and press Enter ⏎', 'For at afvise: Skriv \"Forlad\" og tryk på Enter ⏎ (linjeskift)'),
 ('HANDPLACEMENT.MINIGAME_PREVIEW.HAS_STARTED',  'Has started', 'Har begyndt'),
 ('HANDPLACEMENT.PREVIEW.HAS_BEEN_STARTED',      'Has been started by', 'Er blevet startet af');
