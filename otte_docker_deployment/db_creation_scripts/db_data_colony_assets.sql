@@ -34,7 +34,7 @@ INSERT INTO "MiniGame" ("id", "name", "description", "icon", "settings") VALUES
     "friendlyFirePenaltyS": 1,
     "friendlyFirePenaltyMultiplier": 2,
     "timeBetweenShotsS": 0.2,
-    "survivalTimeS": 300,
+    "survivalTimeS": 180,
 
     "spawnRateCoopModifier": 0.5
 }'
@@ -50,7 +50,8 @@ INSERT INTO "MiniGameDifficulty" ("id", "minigame", "icon", "name", "description
     "minTimeTillImpactS": 4,
     "maxTimeTillImpactS": 8,
     "asteroidMaxHealth": 2,
-    "charCodeLength": 3
+    "charCodeLength": 3,
+    "survivalTimeS": 240
 }'),
 (3, 1, 7002, 'MINIGAME.DIFFICULTY.HARD', 'Hard', 3, 
 '{
@@ -60,7 +61,8 @@ INSERT INTO "MiniGameDifficulty" ("id", "minigame", "icon", "name", "description
     "minTimeTillImpactS": 3,
     "maxTimeTillImpactS": 6,
     "asteroidMaxHealth": 3,
-    "charCodeLength": 4
+    "charCodeLength": 4,
+    "survivalTimeS": 300
 }');
 
 -- ursa_frontend/src/integrations/main_backend/constants.ts is depending on the following ids:
