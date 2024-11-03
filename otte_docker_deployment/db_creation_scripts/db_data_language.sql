@@ -88,6 +88,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('MINIGAME.DIFFICULTY.INSANE',                  'Insane', 'Vanvittig'),
 ('MINIGAME.VICTORY',                            'Victory', 'Sejr'),
 ('MINIGAME.DEFEAT',                             'Defeat', 'Nederlag'),
+('MINIGAME.WAITING_FOR_OTHER_PLAYERS',          'Waiting for other players', 'Afventer andre spillere'),
 ('NOTIFICATION.MULTIPLAYER.LOBBY_CLOSING',      'The lobby is closing', 'Lobbyen lukker'),
 ('NOTIFICATION.MULTIPLAYER.SERVER_CLOSING',     'The server is closing', 'Serveren lukker'),
 ('NOTIFICATION.RETURNING_TO_MENU_IN',           'Returning to menu in', 'Går tilbage til menuen om'),
