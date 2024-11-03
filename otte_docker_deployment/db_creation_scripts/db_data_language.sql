@@ -98,8 +98,8 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('SYSTEM.SOMETHING_WENT_WRONG',                 'Something went wrong', 'Et eller andet gik galt');
 
 INSERT INTO "AvailableLanguages" ("id", "code", "icon", "commonName", "coverage") VALUES 
-(1, 'en-GB', 1015, 'English', 100),
-(2, 'da-DK', 1012, 'Dansk', 100),
+(1, 'en-GB', 1015, 'English', 1),
+(2, 'da-DK', 1012, 'Dansk', 1),
 (3, 'nb-NO', 1013, 'Norsk', 0),
 (4, 'sv-SE', 1014, 'Svenska', 0),
 (5, 'de-DE', 1016, 'Deutsch', 0),
