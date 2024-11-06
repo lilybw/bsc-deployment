@@ -69,6 +69,8 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "9062:9062"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     env_file:
       - ../secrets/multiplayer_backend_secrets.env
     environment:
@@ -85,6 +87,8 @@ services:
       dockerfile: "./Dockerfile"
     ports:
       - "5386:5386"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     env_file:
       - ../secrets/main_backend_secrets.env
     environment:
