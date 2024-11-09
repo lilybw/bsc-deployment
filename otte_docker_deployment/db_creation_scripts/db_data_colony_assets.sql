@@ -41,8 +41,8 @@ INSERT INTO "MiniGame" ("id", "name", "description", "icon", "settings") VALUES
 );
 
 INSERT INTO "MiniGameDifficulty" ("id", "minigame", "icon", "name", "description", "requiredLevel", "overwritingSettings") VALUES
-(1, 1, 7000, 'MINIGAME.DIFFICULTY.EASY', 'Easy', 1, '{}'),
-(2, 1, 7001, 'MINIGAME.DIFFICULTY.MEDIUM', 'Medium', 2, 
+(1, 1, 7000, 'MINIGAME.DIFFICULTY.EASY', 'MINIGAME.ASTEROIDS.DESCRIPTION.EASY', 1, '{}'),
+(2, 1, 7001, 'MINIGAME.DIFFICULTY.MEDIUM', 'MINIGAME.ASTEROIDS.DESCRIPTION.MEDIUM', 2, 
 '{
     "asteroidsPerSecondAtStart": 1,
     "asteroidsPerSecondAt80Percent": 2,
@@ -53,7 +53,7 @@ INSERT INTO "MiniGameDifficulty" ("id", "minigame", "icon", "name", "description
     "charCodeLength": 3,
     "survivalTimeS": 240
 }'),
-(3, 1, 7002, 'MINIGAME.DIFFICULTY.HARD', 'Hard', 3, 
+(3, 1, 7002, 'MINIGAME.DIFFICULTY.HARD', 'MINIGAME.ASTEROIDS.DESCRIPTION.MEDIUM', 3, 
 '{
     "asteroidsPerSecondAtStart": 2,
     "asteroidsPerSecondAt80Percent": 4,
