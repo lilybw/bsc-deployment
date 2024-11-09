@@ -82,7 +82,7 @@ INSERT INTO "Catalogue" ("key",                 "en-GB",                "da-DK")
 ('MINIGAME.ASTEROIDS.DESCRIPTION',              'Defend the colony against a barrage of incomming asteroids, but be careful with your aim', 'Beskyt kolonien mod en regn af indkommende asteroider, men pas på hvor du skyder'),
 ('MINIGAME.ASTEROIDS.NAME',                     'Asteroids', 'Asteroider'),
 ('MINIGAME.ASTEROIDS.DESCRIPTION.EASY',         'Reports indicate a mild meteor rain is aproaching the colony, you must take care of it', 'Der er meldinger om at en mild meteorregn er på vej mod kolonien, du bliver nød til at håndtere det'),
-('MINIGAME.ASTEROIDS.DESCRIPTION.MEDIUM',       'A larger asteroid swarm have entered orbit, but are falling inwards towards the planet on a collision course with the colony', 'En asteroidesværm er gået i omløb om planeten, men alder til at falde ind mod kolonien selv'),
+('MINIGAME.ASTEROIDS.DESCRIPTION.MEDIUM',       'A larger asteroid swarm have entered orbit, but are falling inwards towards the planet on a collision course with the colony', 'En asteroidesværm er gået i omløb om planeten, men lader til at falde ind mod kolonien selv'),
 ('MINIGAME.ASTEROIDS.DESCRIPTION.HARD',         'The deep-space detectors have sound the alarm! Multiple, unidentified, celetial bodies have entered the solar system - it is now or never.', 'Sonderne i udkanten af solsystemet har slået alarm. Et væld af uidentificerede himmellegmer er nået dette sol system - det er nu eller aldrig.'),
 ('MINIGAME.DIFFICULTY',                         'Difficulty', 'Sværhedsgrad'),
 ('MINIGAME.DIFFICULTY.EASY',                    'Easy', 'Let'),

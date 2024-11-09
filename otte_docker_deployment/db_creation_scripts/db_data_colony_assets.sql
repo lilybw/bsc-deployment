@@ -23,7 +23,7 @@ INSERT INTO "GraphicalAsset" ("id", "alias", "type", "useCase", "width", "height
 INSERT INTO "MiniGame" ("id", "name", "description", "icon", "settings") VALUES
 (1, 'MINIGAME.ASTEROIDS.NAME', 'MINIGAME.ASTEROIDS.DESCRIPTION', 1021, 
 '{
-    "minTimeTillImpactS": 5,
+    "minTimeTillImpactS": 6,
     "maxTimeTillImpactS": 10,
     "charCodeLength": 2,
     "asteroidsPerSecondAtStart": 1,
@@ -46,19 +46,19 @@ INSERT INTO "MiniGameDifficulty" ("id", "minigame", "icon", "name", "description
 '{
     "asteroidsPerSecondAtStart": 1,
     "asteroidsPerSecondAt80Percent": 2,
-    "colonyHealth": 2,
-    "minTimeTillImpactS": 4,
+    "colonyHealth": 5,
+    "minTimeTillImpactS": 5,
     "maxTimeTillImpactS": 8,
     "asteroidMaxHealth": 2,
     "charCodeLength": 3,
     "survivalTimeS": 240
 }'),
-(3, 1, 7002, 'MINIGAME.DIFFICULTY.HARD', 'MINIGAME.ASTEROIDS.DESCRIPTION.MEDIUM', 3, 
+(3, 1, 7002, 'MINIGAME.DIFFICULTY.HARD', 'MINIGAME.ASTEROIDS.DESCRIPTION.HARD', 3, 
 '{
     "asteroidsPerSecondAtStart": 2,
     "asteroidsPerSecondAt80Percent": 4,
-    "colonyHealth": 1,
-    "minTimeTillImpactS": 3,
+    "colonyHealth": 5,
+    "minTimeTillImpactS": 4,
     "maxTimeTillImpactS": 6,
     "asteroidMaxHealth": 3,
     "charCodeLength": 4,
