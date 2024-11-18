@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS "ColonyLocation" (
     colony INT NOT NULL,
     location INT NOT NULL,
     transform INT NOT NULL,
-    level INT DEFAULT 1,
+    level INT DEFAULT 1 CHECK (level <= 3), -- Rejects change if greater than 3 and throws error with rollback.
     FOREIGN KEY (colony) REFERENCES "Colony"(id),
     FOREIGN KEY (location) REFERENCES "Location"(id),
     FOREIGN KEY (transform) REFERENCES "Transform"(id)
